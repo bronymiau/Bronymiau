@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bronymiau | Programming</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'pink';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const savedLang = localStorage.getItem('language') || 'en';
+            document.documentElement.setAttribute('data-lang', savedLang);
+        })();
+    </script>
+</head>
+<body>
+    <div class="page-container">
+        <div class="center-nav">
+            <nav class="navbar">
+                <a href="index.html" class="nav-item">
+                    <div class="nav-oval" data-translate="main">Main</div>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <div class="nav-oval" data-translate="interests">Interests</div>
+                </a>
+                <a href="art.html" class="nav-item">
+                    <div class="nav-oval" data-translate="artist">Artist</div>
+                </a>
+                <a href="programming.html" class="nav-item active">
+                    <div class="nav-oval" data-translate="programming">Programming</div>
+                </a>
+            </nav>
+            <div class="nav-indicator"></div>
+        </div>
+
+        <img src="Assets/Pinkie.png" alt="" class="pinkie-decoration">
+
+        <main class="content">
+        </main>
+    </div>
+
+    <div class="theme-switcher">
+        <button class="theme-button theme-pink" data-theme="pink"></button>
+        <button class="theme-button theme-blue" data-theme="blue"></button>
+        <button class="theme-button theme-purple" data-theme="purple"></button>
+        <button class="theme-button theme-yellow" data-theme="yellow"></button>
+    </div>
+
+    <div class="language-switcher">
+        <button class="lang-button" data-lang="en">
+            <img src="Assets/en.png" alt="English" class="lang-flag">
+        </button>
+        <button class="lang-button" data-lang="ru">
+            <img src="Assets/ru.png" alt="Русский" class="lang-flag">
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="translations.js"></script>
+</body>
+</html> 

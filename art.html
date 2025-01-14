@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bronymiau | Artist</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'pink';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const savedLang = localStorage.getItem('language') || 'en';
+            document.documentElement.setAttribute('data-lang', savedLang);
+        })();
+    </script>
+</head>
+<body>
+    <div class="page-container">
+        <div class="center-nav">
+            <nav class="navbar">
+                <a href="index.html" class="nav-item">
+                    <div class="nav-oval" data-translate="main">Main</div>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <div class="nav-oval" data-translate="interests">Interests</div>
+                </a>
+                <a href="art.html" class="nav-item active">
+                    <div class="nav-oval" data-translate="artist">Artist</div>
+                </a>
+                <a href="programming.html" class="nav-item">
+                    <div class="nav-oval" data-translate="programming">Programming</div>
+                </a>
+            </nav>
+            <div class="nav-indicator"></div>
+        </div>
+
+        <img src="Assets/Pinkie.png" alt="" class="pinkie-decoration">
+
+        <main class="content">
+            <div class="grid-container">
+                <div class="content-block">
+                    <h2 data-translate="priceList">Прайс-лист</h2>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span data-translate="art2028">Арт 2028x2028 - 500₽</span>
+                            <span>$10</span>
+                        </div>
+                        <div class="price-item">
+                            <span data-translate="nsfwArtPrice">NSFW арт - 500₽</span>
+                            <span>+$10</span>
+                        </div>
+                        <div class="price-item">
+                            <span data-translate="sfwArtPrice">SFW арт - 1000₽</span>
+                            <span>+$20</span>
+                        </div>
+                        <div class="price-item">
+                            <span data-translate="art5000">Арт 5000x5000 - 250₽</span>
+                            <span>$20</span>
+                        </div>
+                        <div class="price-item">
+                            <span data-translate="alicorns">Аликорны - 250₽</span>
+                            <span>$5</span>
+                        </div>
+                        <div class="price-item">
+                            <span data-translate="crotchboobs">Вымя - 250₽</span>
+                            <span>+$5</span>
+                        </div>
+                        <div class="price-item">
+                            <span data-translate="stallions">Для жеребцов - 350₽</span>
+                            <span>+$7</span>
+                        </div>
+                        <div class="price-item">
+                            <span data-translate="twoCharacters">Для двух персонажей - 500₽</span>
+                            <span>+$10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h2 data-translate="portfolio">Портфолио</h2>
+                    <div class="portfolio-grid">
+                        <div class="art-item blur" id="art1">
+                            <img src="Assets/art1.png" alt="Art 1">
+                        </div>
+                        <div class="art-item blur" id="art2">
+                            <img src="Assets/art2.png" alt="Art 2">
+                        </div>
+                        <div class="art-item blur" id="art3">
+                            <img src="Assets/art3.png" alt="Art 3">
+                        </div>
+                        <div class="art-item blur" id="art4">
+                            <img src="Assets/art4.png" alt="Art 4">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h2 data-translate="termsAndConditions">Условия и правила заказа</h2>
+                    <ul class="terms">
+                        <li data-translate="terms.0">Ставить дедлайн нельзя</li>
+                        <li data-translate="terms.1">Нельзя торопить</li>
+                        <li data-translate="terms.2">Заказ только через личку в Discord</li>
+                        <li data-translate="terms.3">Сначала оплата, деньги не возвращаются</li>
+                        <li data-translate="terms.4">Рисую только пони</li>
+                    </ul>
+                </div>
+                <div class="content-block">
+                    <h2 data-translate="contacts">Контакты</h2>
+                    <div class="social-links">
+                        <a href="https://bsky.app/profile/bronymiau.bsky.social" class="social-link">Bluesky</a>
+                        <a href="https://discord.gg/XcTGFupNAy " class="social-link">Discord</a>
+                        <a href="https://x.com/Bronymiau" class="social-link">Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="theme-switcher">
+        <button class="theme-button theme-pink" data-theme="pink"></button>
+        <button class="theme-button theme-blue" data-theme="blue"></button>
+        <button class="theme-button theme-purple" data-theme="purple"></button>
+        <button class="theme-button theme-yellow" data-theme="yellow"></button>
+    </div>
+
+    <div class="language-switcher">
+        <button class="lang-button" data-lang="en">
+            <img src="Assets/en.png" alt="English" class="lang-flag">
+        </button>
+        <button class="lang-button" data-lang="ru">
+            <img src="Assets/ru.png" alt="Русский" class="lang-flag">
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="translations.js"></script>
+</body>
+</html> 

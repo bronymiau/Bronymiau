@@ -1,0 +1,1030 @@
+:root {
+    --background-color: #0a0a0a;
+    --primary-color: #ff69b4;
+    --secondary-color: #9b59b6;
+    --text-color: #ffffff;
+    --block-bg: rgba(255, 255, 255, 0.03);
+    --hover-color: rgba(255, 105, 180, 0.1);
+    --gradient-border: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    overflow-y: auto;
+    cursor: url('Assets/Cursor.png'), auto;
+}
+
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.center-nav {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+.navbar {
+    display: flex;
+    gap: 2rem;
+    background: transparent;
+}
+
+.nav-oval {
+    padding: 1rem 2rem;
+    background: var(--block-bg);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid transparent;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.nav-item:hover .nav-oval {
+    background: var(--hover-color);
+    transform: scale(1.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(var(--primary-color), 0.3);
+}
+
+.nav-item.active .nav-oval {
+    background: var(--primary-color);
+    color: var(--background-color);
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+    margin-top: -2rem;
+}
+
+.oval-container {
+    background: var(--block-bg);
+    border-radius: 30px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 800px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 1px solid transparent;
+    background-clip: padding-box;
+}
+
+.oval-container::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    z-index: -1;
+    border-radius: 30px;
+    background: var(--gradient-border);
+    animation: borderGradient 3s linear infinite;
+}
+
+/* Обновленный стиль для индикатора навигации */
+.nav-indicator {
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    top: -20px;
+    pointer-events: none;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Анимированный фон */
+.background-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.1;
+    background: radial-gradient(circle at 50% 50%, 
+        var(--primary-color) 0%, 
+        transparent 50%);
+    animation: gradientMove 15s ease infinite;
+}
+
+@keyframes borderGradient {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes gradientMove {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(10%, 10%); }
+    50% { transform: translate(-10%, 10%); }
+    75% { transform: translate(-10%, -10%); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Обновленные стили для арт-галереи */
+.art-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.art-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    background: var(--block-bg);
+    border-radius: 20px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.art-group:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(var(--primary-color), 0.2);
+}
+
+.art-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.art-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.blur {
+    filter: blur(10px);
+}
+
+.art-item.blur {
+    filter: blur(10px);
+    cursor: pointer;
+}
+
+.age-verification-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--background-color);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1001;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.age-verification-modal.active {
+    display: block;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.modal-buttons button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: var(--primary-color);
+    color: var(--text-color);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    display: block;
+}
+
+/* Стили для Pinkie */
+.pinkie-decoration {
+    position: fixed;
+    right: -70px;
+    bottom: -20px;
+    width: 600px;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    z-index: 1000;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Создаем отдельный элемент для обработки кликов */
+.pinkie-click-area {
+    position: fixed;
+    right: -70px;
+    bottom: -20px;
+    width: 600px;
+    height: 600px;
+    z-index: 1001;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* Цветовые темы */
+[data-theme="pink"] {
+    --primary-color: #ff69b4;
+    --secondary-color: #9b59b6;
+}
+
+[data-theme="blue"] {
+    --primary-color: #00bfff;
+    --secondary-color: #4169e1;
+}
+
+[data-theme="purple"] {
+    --primary-color: #9370db;
+    --secondary-color: #483d8b;
+}
+
+[data-theme="yellow"] {
+    --primary-color: #ffd700;
+    --secondary-color: #ffa500;
+}
+
+/* Переключатель тем */
+.theme-switcher {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1001;
+    display: flex;
+    gap: 10px;
+}
+
+.theme-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-button:hover {
+    transform: scale(1.1);
+}
+
+.theme-button.active {
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.theme-pink {
+    background: linear-gradient(45deg, #ff69b4, #9b59b6);
+}
+
+.theme-blue {
+    background: linear-gradient(45deg, #00bfff, #4169e1);
+}
+
+.theme-purple {
+    background: linear-gradient(45deg, #9370db, #483d8b);
+}
+
+.theme-yellow {
+    background: linear-gradient(45deg, #ffd700, #ffa500);
+}
+
+/* Стили для сетки блоков */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-block {
+    background: var(--block-bg);
+    border-radius: 20px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.content-block:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(var(--primary-color), 0.2);
+}
+
+/* Стили для социальных сетей */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.social-link {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    background: var(--block-bg);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Стили для прайс-листа */
+.price-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.price-item {
+    background: var(--block-bg);
+    padding: 1rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Стили для блока навыков */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.skill-category {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(5px);
+}
+
+.skill-category h3 {
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.skills-list li {
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
+    opacity: 0.8;
+}
+
+.skills-list li:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+/* Стилизация скроллбара */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+    border: 2px solid var(--background-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Обновленные стили для социальных сетей */
+.social-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.social-category {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.social-category:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(5px);
+}
+
+.social-category h3 {
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.social-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.social-list li {
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
+}
+
+.social-link {
+    color: var(--text-color);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+/* Стили для блока информации */
+.info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.time-zone {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.time-display {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-top: 0.5rem;
+}
+
+.gender-info {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.gender-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.gender-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pride-flag {
+    width: 30px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+/* Стили для переключателя языков */
+.language-switcher {
+    position: fixed;
+    bottom: 20px;
+    left: 180px; /* Располагаем после переключателя тем */
+    z-index: 1001;
+    display: flex;
+    gap: 10px;
+}
+
+.lang-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    overflow: hidden;
+    background: none;
+}
+
+.lang-button:hover {
+    transform: scale(1.1);
+}
+
+.lang-button.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.lang-flag {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Медиа-запросы для адаптивной верстки */
+@media screen and (max-width: 1200px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .pinkie-decoration {
+    width: 400px;
+    right: -50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .center-nav {
+    margin-top: 5vh;
+    padding: 1rem;
+  }
+
+  .content {
+    padding: 0.5rem;
+  }
+
+  .oval-container {
+    padding: 1rem;
+    margin: 0 0.5rem;
+  }
+
+  .art-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .skills-list, .social-list {
+    grid-template-columns: 1fr;
+  }
+
+  .pinkie-decoration {
+    width: 300px;
+    right: -40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav-oval {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .oval-container {
+    padding: 0.75rem;
+  }
+
+  .content-block {
+    padding: 0.75rem;
+  }
+
+  .theme-switcher, .language-switcher {
+    bottom: 10px;
+  }
+
+  .theme-button, .lang-button {
+    width: 25px;
+    height: 25px;
+  }
+
+  .pinkie-decoration {
+    width: 200px;
+    right: -30px;
+  }
+}
+
+/* Медиа-запрос для устройств с маленькой высотой экрана */
+@media screen and (max-height: 600px) {
+  .center-nav {
+    margin-top: 2vh;
+  }
+
+  .pinkie-decoration {
+    display: none;
+  }
+}
+
+/* Медиа-запрос для поддержки темного режима */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #0a0a0a;
+    --text-color: #ffffff;
+    --block-bg: rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* Медиа-запрос для уменьшения анимаций при предпочтении их уменьшения */
+@media (prefers-reduced-motion: reduce) {
+  .nav-item:hover .nav-oval,
+  .content-block:hover,
+  .social-link:hover,
+  .theme-button:hover,
+  .lang-button:hover {
+    transform: none;
+  }
+
+  .background-gradient {
+    animation: none;
+  }
+
+  .oval-container::before {
+    animation: none;
+  }
+}
+
+/* Добавляем затемнение внизу экрана */
+.page-container::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Высота затемнения */
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(10, 10, 10, 0.8) /* Нежное затемнение */
+    );
+    pointer-events: none; /* Чтобы элемент не мешал взаимодействию */
+    z-index: 999; /* Поверх контента, но под модальными окнами */
+}
+
+/* Адаптация затемнения для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .page-container::after {
+        height: 100px; /* Уменьшаем высоту затемнения */
+    }
+}
+
+/* Медиа-запросы для арт-галереи */
+@media screen and (max-width: 1200px) {
+    .art-grid {
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .art-group {
+        gap: 0.75rem;
+        padding: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .art-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .art-group {
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .art-grid {
+        padding: 0.75rem;
+    }
+    
+    .art-group {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Добавим медиа-запрос для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Обновляем стили для блоков контента */
+.content-block {
+    background: var(--block-bg);
+    border-radius: 20px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+/* Обновляем медиа-запросы */
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 0.5rem;
+    }
+
+    .content-block {
+        padding: 1rem;
+    }
+
+    .oval-container {
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+
+    .price-list {
+        gap: 0.5rem;
+    }
+
+    .price-item {
+        padding: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content-block {
+        padding: 0.75rem;
+    }
+
+    .oval-container {
+        padding: 0.75rem;
+    }
+}
+
+/* Стили для конфетти */
+.confetti {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    animation: confettiFade 3s forwards;
+}
+
+@keyframes confettiFade {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Обновляем стиль для Pinkie, чтобы показать, что на неё можно кликнуть */
+.pinkie-decoration {
+    position: fixed;
+    right: -70px;
+    bottom: -20px;
+    width: 600px;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    z-index: 1000;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Создаем отдельный элемент для обработки кликов */
+.pinkie-click-area {
+    position: fixed;
+    right: -70px;
+    bottom: -20px;
+    width: 600px;
+    height: 600px;
+    z-index: 1001;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* Скрываем Pinkie и область клика на мобильных устройствах */
+@media screen and (max-width: 768px) {
+    .pinkie-decoration,
+    .pinkie-click-area {
+        display: none;
+    }
+}
+
+/* Обновленные стили для кнопки снега */
+.snow-button {
+    position: fixed;
+    bottom: 20px;
+    left: 280px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--block-bg);
+    padding: 6px;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.snow-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.snow-button:hover {
+    transform: scale(1.1);
+}
+
+.snow-button.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Стили для снежинок */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.8;
+    border-radius: 50%;
+    background: white;
+    width: 4px;
+    height: 4px;
+}
+
+/* Адаптируем размер под мобильные устройства */
+@media screen and (max-width: 768px) {
+    .snow-button {
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        left: 250px;
+        bottom: 15px;
+    }
+}
+
+/* Стили для искр при клике */
+.spark {
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    animation: sparkFade 0.5s ease-out forwards;
+    box-shadow: 0 0 5px currentColor;
+}
+
+@keyframes sparkFade {
+    0% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Обновленные стили для анимации перехода */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.rainbow-dash {
+    position: absolute;
+    width: 1200px;
+    height: auto;
+    right: -1200px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    animation: flyAnimation 0.5s ease-out;
+}
+
+.rainbow-trail {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.7),
+        rgba(255, 128, 0, 0.7),
+        rgba(255, 255, 0, 0.7),
+        rgba(0, 255, 0, 0.7),
+        rgba(0, 255, 255, 0.7),
+        rgba(0, 0, 255, 0.7),
+        rgba(128, 0, 255, 0.7)
+    );
+    transform: translateX(100%);
+    opacity: 0.8;
+}
+
+@keyframes flyAnimation {
+    0% {
+        transform: translateY(-50%) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(-50%) rotate(2deg);
+    }
+    100% {
+        transform: translateY(-50%) rotate(-2deg);
+    }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bronymiau | Main</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'pink';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const savedLang = localStorage.getItem('language') || 'en';
+            document.documentElement.setAttribute('data-lang', savedLang);
+        })();
+    </script>
+</head>
+<body>
+    <div class="page-container">
+        <div class="center-nav">
+            <nav class="navbar">
+                <a href="index.html" class="nav-item active">
+                    <div class="nav-oval" data-translate="main">Main</div>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <div class="nav-oval" data-translate="interests">Interests</div>
+                </a>
+                <a href="art.html" class="nav-item">
+                    <div class="nav-oval" data-translate="artist">Artist</div>
+                </a>
+                <a href="programming.html" class="nav-item">
+                    <div class="nav-oval" data-translate="programming">Programming</div>
+                </a>
+            </nav>
+            <div class="nav-indicator"></div>
+        </div>
+        <img src="Assets/Pinkie.png" alt="" class="pinkie-decoration">
+
+        <main class="content">
+            <div class="grid-container">
+                <div class="content-block">
+                    <h2 data-translate="whoIs">Who is the Bronymiau?</h2>
+                    <p data-translate="aboutText">I was born on February 9, 2006, in Ukraine. Since childhood, I've been inspired by the world of My Little Pony, which has not only become my passion but also a source of creative energy. On October 29, 2024, I became part of the 'Brony' community, adding new vibrant shades to my life. My pronouns are 'She/Her.'
+
+                        My work is always focused on creating harmony, beauty, and attention to detail. I believe that art and creativity are ways to inspire, connect people, and bring change to the world.</p>
+                </div>
+                <div class="content-block">
+                    <h2 data-translate="info">Info</h2>
+                    <div class="info-container">
+                        <div class="time-zone">
+                            <h3 data-translate="localTime">Local time (Warsaw)</h3>
+                            <div id="warsaw-time" class="time-display"></div>
+                        </div>
+                        <div class="gender-info">
+                            <h3 data-translate="identification">Identification</h3>
+                            <div class="gender-items">
+                                <div class="gender-item">
+                                    <img src="Assets/Pansexual.png" alt="Pansexual Pride" class="pride-flag">
+                                    <span data-translate="pansexual">Pansexual</span>
+                                </div>
+                                <div class="gender-item">
+                                    <img src="Assets/Brony.png" alt="Brony Pride" class="pride-flag">
+                                    <span data-translate="bronyPride">Brony/Pegasister Pride</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h2 data-translate="skills">Skills</h2>
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h3 data-translate="drawing">Drawing</h3>
+                            <ul class="skills-list">
+                                <li data-translate="digitalArt">Digital Art</li>
+                                <li data-translate="characterDesign">Character Design</li>
+                                <li data-translate="nsfwArt">Nsfw Digital Art</li>
+                                <li data-translate="illustration">Illustration</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3 data-translate="programmingSkills">Programming</h3>
+                            <ul class="skills-list">
+                                <li data-translate="htmlCss">HTML/CSS</li>
+                                <li data-translate="javascript">JavaScript</li>
+                                <li data-translate="typescript">TypeScript</li>
+                                <li data-translate="csharp">C#</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h2 data-translate="socials">Socials</h2>
+                    <div class="social-container">
+                        <div class="social-category">
+                            <h3 data-translate="drawingPlatforms">Drawing</h3>
+                            <ul class="social-list">
+                                <li><a href="#" class="social-link">DeviantArt</a></li>
+                                <li><a href="https://derpibooru.org/profiles/bronymiau" class="social-link">Derpiboru</a></li>
+                                <li><a href="https://x.com/Bronymiau" class="social-link">Twitter</a></li>
+                                <li><a href="patreon.com/bronymiau_artist" class="social-link">Patreon</a></li>
+                            </ul>
+                        </div>
+                        <div class="social-category">
+                            <h3 data-translate="chat">Chat</h3>
+                            <ul class="social-list">
+                                <li><a href="https://discord.gg/XcTGFupNAy " class="social-link">Discord</a></li>
+                                <li><a href="https://github.com/bronymiau" class="social-link">Github</a></li>
+                                <li><a href="https://www.twitch.tv/bronymiau" class="social-link">Twitch</a></li>
+                                <li><a href="https://bsky.app/profile/bronymiau.bsky.social" class="social-link">Bluesky</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="theme-switcher">
+        <button class="theme-button theme-pink" data-theme="pink"></button>
+        <button class="theme-button theme-blue" data-theme="blue"></button>
+        <button class="theme-button theme-purple" data-theme="purple"></button>
+        <button class="theme-button theme-yellow" data-theme="yellow"></button>
+    </div>
+
+    <div class="language-switcher">
+        <button class="lang-button" data-lang="en">
+            <img src="Assets/en.png" alt="English" class="lang-flag">
+        </button>
+        <button class="lang-button" data-lang="ru">
+            <img src="Assets/ru.png" alt="Русский" class="lang-flag">
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="translations.js"></script>
+</body>
+</html>
