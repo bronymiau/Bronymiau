@@ -19,5 +19,4 @@ yarn-error.log*
 .cache/
 dist/
 build/
-coverage/
-Assets/ 
+coverage/ 
