@@ -52,6 +52,31 @@ body {
 .nav-item {
     text-decoration: none;
     color: var(--text-color);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-item.active {
+    transform: translateY(-2px);
+}
+
+.nav-item.transitioning {
+    pointer-events: none;
+}
+
+/* Добавляем анимацию прыжка для активного элемента */
+@keyframes navItemBounce {
+    0%, 100% { transform: translateY(-2px); }
+    50% { transform: translateY(-4px); }
+}
+
+.nav-item.active:hover {
+    animation: navItemBounce 0.6s ease infinite;
+}
+
+/* Обновляем стили для неактивных элементов */
+.nav-item:not(.active):hover {
+    transform: translateY(-1px);
 }
 
 .nav-item:hover .nav-oval {
@@ -102,15 +127,13 @@ body {
 
 /* Обновленный стиль для индикатора навигации */
 .nav-indicator {
-    width: 10px;
-    height: 10px;
-    background: var(--primary-color);
-    border-radius: 50%;
     position: absolute;
-    top: -20px;
-    pointer-events: none;
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 0 10px var(--primary-color);
+    bottom: -10px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 0 10px rgba(var(--primary-color), 0.3);
 }
 
 /* Анимированный фон */
@@ -1585,29 +1608,24 @@ body {
         padding: 0.75rem;
     }
 
-    /* Увеличиваем отступ от верхней навигации */
     .oval-container {
         margin-top: 1.5rem;
     }
 }
 
-/* Обновляем стили для блоков на мобильных устройствах */
 @media screen and (max-width: 768px) {
-    /* Делаем блоки в один столбец */
     .grid-container {
-        grid-template-columns: 1fr; /* Один столбец вместо двух */
+        grid-template-columns: 1fr; 
         gap: 1rem;
         padding: 1rem;
     }
 
-    /* Адаптируем размеры и отступы блоков */
     .content-block {
         margin-bottom: 1rem;
         padding: 1.25rem;
         width: auto;
     }
 
-    /* Адаптируем размеры для oval-container */
     .oval-container {
         padding: 1.5rem;
         margin: 1rem 0.5rem;
@@ -1615,28 +1633,25 @@ body {
         max-width: 100%;
     }
 
-    /* Адаптируем сетку для блоков навыков и социальных сетей */
     .skills-list,
     .social-list {
-        grid-template-columns: 1fr; /* Один столбец */
+        grid-template-columns: 1fr;
         gap: 0.5rem;
     }
 
-    /* Адаптируем отступы для категорий */
     .skill-category,
     .social-category {
         padding: 0.75rem;
         margin-bottom: 0.5rem;
     }
 
-    /* Адаптируем размеры текста */
     .skill-category h3,
     .social-category h3 {
         font-size: 1rem;
         margin-bottom: 0.5rem;
     }
 
-    /* Адаптируем размеры для информационных блоков */
+
     .info-container {
         gap: 1rem;
     }
@@ -1648,7 +1663,6 @@ body {
     }
 }
 
-/* Дополнительные стили для очень маленьких экранов */
 @media screen and (max-width: 480px) {
     .grid-container {
         padding: 0.5rem;
@@ -1692,13 +1706,14 @@ body {
     object-fit: contain;
 }
 
+
 .footer-content {
     position: relative;
     z-index: 2;
     color: #888;
     font-size: 0.9rem;
     padding: 1rem 0;
-    margin-top: 180px; /* Отступ от верха, чтобы текст был под гифкой */
+    margin-top: 180px; 
 }
 
 /* Медиа-запросы для футера */
@@ -1710,11 +1725,11 @@ body {
     }
 
     .bottom-decoration {
-        transform: translateX(-50%) scale(0.5); /* Уменьшаем гифку в два раза */
+        transform: translateX(-50%) scale(0.5); 
     }
 
     .footer-content {
-        margin-top: 90px; /* Уменьшаем отступ для мобильных */
+        margin-top: 90px; 
     }
 }
 
@@ -1727,4 +1742,226 @@ body {
 
 .content {
     flex: 1;
+}
+
+
+.programming-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--block-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(var(--primary-color), 0.2);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-title {
+    margin: 0 0 1rem 0;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.project-description {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    white-space: pre-line;
+    line-height: 1.5;
+}
+
+.project-status {
+    color: var(--secondary-color);
+    font-style: italic;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link {
+    padding: 0.5rem 2rem;
+    background: var(--primary-color);
+    color: var(--background-color);
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.project-link.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--block-bg);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    .programming-container {
+        padding: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .project-card {
+        max-width: 100%;
+    }
+}
+
+.project-showcase {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.project-image-wrapper {
+    flex: 0 0 400px;
+    position: relative;
+    transform: perspective(1000px) rotateY(-15deg);
+    transition: transform 0.5s ease;
+}
+
+.project-image-wrapper:hover {
+    transform: perspective(1000px) rotateY(-5deg);
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--primary-color);
+}
+
+.project-card {
+    flex: 1;
+    background: var(--block-bg);
+    border-radius: 15px;
+    border: 1px solid var(--primary-color);
+    padding: 2rem;
+    transform: translateX(-50px);
+    opacity: 0;
+    animation: slideIn 0.8s ease forwards;
+}
+
+.project-title {
+    margin: 0 0 1.5rem 0;
+    position: relative;
+}
+
+.title-effect {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 10px rgba(var(--primary-color), 0.3);
+    position: relative;
+    display: inline-block;
+}
+
+.title-effect::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Обновляем медиа-запросы */
+@media screen and (max-width: 1024px) {
+    .project-showcase {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .project-image-wrapper {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .project-card {
+        transform: translateY(-30px);
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-30px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title-effect {
+        font-size: 2rem;
+    }
+
+    .project-image-wrapper {
+        transform: perspective(1000px) rotateY(-10deg);
+    }
 }

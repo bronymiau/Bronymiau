@@ -14,15 +14,22 @@ let snowflakeInterval;
 
     function handleTransition(e) {
         const href = this.getAttribute('href');
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
         
         if (!href || 
             href.startsWith('#') || 
             href.startsWith('http') || 
-            href.startsWith('https')) {
+            href.startsWith('https') ||
+            href === currentPath) {
+            return;
+        }
+        
+        if (this.classList.contains('transitioning')) {
             return;
         }
         
         e.preventDefault();
+        this.classList.add('transitioning');
         
         rainbowDash.style.transition = 'none';
         rainbowDash.style.transform = 'translateY(-50%) translateX(0)';

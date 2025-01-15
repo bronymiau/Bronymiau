@@ -78,7 +78,16 @@ const translations = {
         loreText1: "Shau was born in the secluded Eastern regions of Equestria, far from the lights and bustle of city life. These lands, shrouded in mists and filled with the rustling of wings, became her first home. Her parents, wanderers and loners by nature, left her to fend for herself from a young age. She quickly learned how to hunt and survive in a world that often felt indifferent.",
         loreText2: "Loneliness became her constant companion for years. When she was younger, a colony of bat ponies offered her a place among them, but Shau, valuing her freedom above all else, fled and chose to walk her path alone. She quickly became a skilled thief and hunter, living only for herself.",
         loreText3: "One fateful night, her journey led her to the technomagical city of Canterlot, where she encountered Princess Luna. Mistaking the princess for a threat, Shau attacked her. But instead of punishment, Luna saw a reflection of her younger self in the fiery and lost bat pony. She offered Shau a chance: to train, to find herself, and to learn how to balance her dark nature with the ability to shine in the world.",
-        loreText4: "Now, Shau continues her journey, aiming to become a protector of other nocturnal beings like herself. Her ultimate goal is to prove that even the darkest of creatures can play a vital role in something greater."
+        loreText4: "Now, Shau continues her journey, aiming to become a protector of other nocturnal beings like herself. Her ultimate goal is to prove that even the darkest of creatures can play a vital role in something greater.",
+        myProjects: "My Projects",
+        equestraDesc: `Universal file conversion utility. Supports:
+        • Video formats
+        • Audio formats
+        • Images
+        
+        Simple and user-friendly interface makes file conversion quick and easy.`,
+        inDevelopment: "In Development",
+        download: "Download"
     },
     ru: {
         main: "Главная",
@@ -159,6 +168,15 @@ const translations = {
         loreText1: "Шау появилась на свет в уединённых Восточных регионах Эквестрии, вдали от света городов и шумной жизни. Эти земли, наполненные туманами и шорохами ночей, были её первым домом. Её родители, одиночки и вечные странники, оставляли малышку одну с ранних лет. Так она быстро научилась выживать и охотиться в суровом мире.",
         loreText2: "Однако одиночество стало её спутником на долгие годы. Когда она была моложе, ей предложили присоединиться к колонии бэтпони, но Шау, ценившая свободу больше всего, сбежала, предпочтя одиночный путь. Она быстро стала искусной воровкой и охотницей, живя только для себя.",
         loreText3: "Однажды её путь привёл в технологично-магический Кантерлот, где она встретила принцессу Луну. Шау, не зная её, посчитала Луну угрозой и атаковала её. Вместо возмездия принцесса увидела в ней себя юную и предложила Шау шанс: обучиться, найти себя и понять, как совмещать тёмную сущность с возможностью сиять в этом мире.",
-        loreText4: "Теперь Шау продолжает своё путешествие, стремясь стать защитницей таких же, как она, ночных созданий. Её цель — показать, что даже самые тёмные существа могут быть частью чего-то великого."
+        loreText4: "Теперь Шау продолжает своё путешествие, стремясь стать защитницей таких же, как она, ночных созданий. Её цель — показать, что даже самые тёмные существа могут быть частью чего-то великого.",
+        myProjects: "Мои проекты",
+        equestraDesc: `Универсальная утилита для конвертации файлов. Поддерживает:
+        • Видео форматы
+        • Аудио форматы
+        • Изображения
+        
+        Простой и удобный интерфейс делает конвертацию файлов быстрой и понятной.`,
+        inDevelopment: "В разработке",
+        download: "Скачать"
     }
 }; 
