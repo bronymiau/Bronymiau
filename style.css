@@ -799,6 +799,88 @@ body {
     }
 }
 
+/* Обновленные стили для ленты донатеров */
+.donors-showcase {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--block-bg);
+    border-radius: 20px;
+    border: 1px solid var(--primary-color);
+    perspective: 1000px;
+    width: 100%;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.donors-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.donors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+}
+
+.donor-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.donor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(var(--primary-color), 0.2);
+}
+
+.donor-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    margin-bottom: 1rem;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    pointer-events: none;
+}
+
+.donor-name {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.donor-amount {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .donors-showcase {
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .donors-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .donor-avatar {
+        width: 60px;
+        height: 60px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .art-grid {
         grid-template-columns: 1fr;
@@ -2212,5 +2294,146 @@ body {
     .drearth-showcase {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+}
+
+/* Стили для ленты донатеров */
+.donors-ribbon {
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+    background: var(--block-bg);
+    border-top: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    margin-top: 2rem;
+}
+
+.donors-container {
+    display: flex;
+    animation: scrollDonors 20s linear infinite;
+}
+
+.donor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1rem;
+    flex-shrink: 0;
+}
+
+.donor-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.donor-amount {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+}
+
+@keyframes scrollDonors {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Медиа-запросы для ленты донатеров */
+@media screen and (max-width: 768px) {
+    .donors-ribbon {
+        padding: 0.5rem 0;
+    }
+    
+    .donor-avatar {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Обновленные стили для ленты донатеров */
+.donors-showcase {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--block-bg);
+    border-radius: 20px;
+    border: 1px solid var(--primary-color);
+    perspective: 1000px;
+    width: 100%;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.donors-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.donors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+}
+
+.donor-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.donor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(var(--primary-color), 0.2);
+}
+
+.donor-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    margin-bottom: 1rem;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    pointer-events: none;
+}
+
+.donor-name {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.donor-amount {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .donors-showcase {
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .donors-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .donor-avatar {
+        width: 60px;
+        height: 60px;
     }
 }
