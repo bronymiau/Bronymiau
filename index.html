@@ -115,9 +115,52 @@
                         </div>
                     </div>
                 </div>
+                <div class="content-block oc-block">
+                    <div class="oc-container">
+                        <div class="oc-image">
+                            <img src="Assets/shau.png" alt="Shau" class="oc-portrait">
+                        </div>
+                        <div class="oc-description">
+                            <div class="oc-tabs" style="pointer-events: all;">
+                                <button type="button" class="tab-button active" onclick="switchTab('bio')" data-translate="bio">Био</button>
+                                <button type="button" class="tab-button" onclick="switchTab('lore')" data-translate="lore">Лор</button>
+                            </div>
+                            <div id="bio" class="tab-content bio active">
+                                <p data-translate="bioText">Шау — изящная и лёгкая бэтпони-мышь весом чуть больше перышка...</p>
+                                
+                                <h3 data-translate="weaknesses">Слабости:</h3>
+                                <ul>
+                                    <li data-translate="weakness1">Ультразвук раздражает её чувствительные уши, лишая её координации.</li>
+                                    <li data-translate="weakness2">Странная и необъяснимая фобия кроликов: она избегает их, хотя и не признаётся в этом.</li>
+                                    <li data-translate="weakness3">Некоторые блюда вызывают у неё неприязнь, особенно пряные или слишком кислые.</li>
+                                </ul>
+
+                                <h3 data-translate="strengths">Сила:</h3>
+                                <ul>
+                                    <li data-translate="strength1">Острейший слух, позволяющий улавливать даже самые слабые звуковые колебания.</li>
+                                    <li data-translate="strength2">Обоняние, способное находить цель на огромных расстояниях.</li>
+                                    <li data-translate="strength3">Идеальное зрение в темноте.</li>
+                                </ul>
+                            </div>
+                            <div id="lore" class="tab-content lore">
+                                <p data-translate="loreText1">Шау появилась на свет в уединённых Восточных регионах Эквестрии...</p>
+                                <p data-translate="loreText2">Однако одиночество стало её спутником на долгие годы...</p>
+                                <p data-translate="loreText3">Однажды её путь привёл в технологично-магический Кантерлот...</p>
+                                <p data-translate="loreText4">Теперь Шау продолжает своё путешествие...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
+
+    <footer class="footer">
+        <img src="Assets/Bottom.gif" alt="" class="bottom-decoration">
+        <div class="footer-content">
+            <p>© <script>document.write(new Date().getFullYear())</script> Bronymiau. All rights reserved.</p>
+        </div>
+    </footer>
 
     <div class="theme-switcher">
         <button class="theme-button theme-pink" data-theme="pink"></button>

@@ -1,3 +1,6 @@
+let isSnowEnabled = false;
+let snowflakeInterval;
+
 (function() {
     const transitionContainer = document.createElement('div');
     transitionContainer.className = 'page-transition';
@@ -55,6 +58,10 @@
     const savedLang = localStorage.getItem('language') || 'en';
     document.documentElement.setAttribute('data-lang', savedLang);
     
+    document.addEventListener('DOMContentLoaded', () => {
+        updatePrices(savedLang);
+    });
+
     document.addEventListener('DOMContentLoaded', () => {
         const snowButton = document.createElement('button');
         snowButton.className = 'snow-button';
@@ -330,20 +337,155 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('language', lang);
         }
     });
+
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.close-modal');
+    const ageModal = document.getElementById('ageVerificationModal');
+    let selectedImage = null;
+    let isAdult = localStorage.getItem('isAdult') === 'true';
+
+    // Обработка открытия изображений
+    document.querySelectorAll('.portfolio-grid .art-item img').forEach(img => {
+        img.style.cursor = 'pointer';
+        img.style.pointerEvents = 'auto';
+        
+        img.addEventListener('click', function() {
+            selectedImage = this;
+            if (isAdult) {
+                showImage(this);
+            } else {
+                showAgeVerification();
+            }
+        });
+    });
+
+    function showImage(imgElement) {
+        modal.style.display = 'block';
+        modalImg.src = imgElement.src;
+        document.body.style.overflow = 'hidden';
+    }
+
+    function showAgeVerification() {
+        ageModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Обработка кнопок подтверждения возраста
+    document.getElementById('yesAge').addEventListener('click', () => {
+        isAdult = true;
+        localStorage.setItem('isAdult', 'true');
+        ageModal.style.display = 'none';
+        if (selectedImage) {
+            showImage(selectedImage);
+        }
+    });
+
+    document.getElementById('noAge').addEventListener('click', () => {
+        ageModal.style.display = 'none';
+        document.body.style.overflow = '';
+        selectedImage = null;
+    });
+
+    // Закрытие модальных окон
+    closeBtn.addEventListener('click', closeModals);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModals();
+        }
+    });
+    ageModal.addEventListener('click', (e) => {
+        if (e.target === ageModal) {
+            closeModals();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModals();
+        }
+    });
+
+    function closeModals() {
+        modal.style.display = 'none';
+        ageModal.style.display = 'none';
+        document.body.style.overflow = '';
+        selectedImage = null;
+    }
+
+    // Запрет контекстного меню на изображениях
+    document.querySelectorAll('.portfolio-grid .art-item img, .modal-content').forEach(img => {
+        img.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            return false;
+        });
+        
+        img.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+            return false;
+        });
+    });
+
+    // Запрет контекстного меню в модальном окне
+    document.getElementById('imageModal').addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        return false;
+    });
+
+    // Запрет сохранения изображений через клавиатуру
+    document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // Обработка переключения вкладок OC
+    document.querySelectorAll('.tab-button').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const tabId = button.getAttribute('data-tab');
+            
+            // Убираем активный класс у всех кнопок и контента
+            document.querySelectorAll('.tab-button').forEach(btn => 
+                btn.classList.remove('active')
+            );
+            document.querySelectorAll('.tab-content').forEach(content => 
+                content.classList.remove('active')
+            );
+            
+            // Добавляем активный класс нажатой кнопке и соответствующему контенту
+            button.classList.add('active');
+            document.querySelector(`.tab-content.${tabId}`).classList.add('active');
+        });
+    });
+
+    // Обновление года в футере
+    const yearElement = document.querySelector('.footer-content p');
+    if (yearElement) {
+        const currentYear = new Date().getFullYear();
+        yearElement.innerHTML = `© ${currentYear} Bronymiau. All rights reserved.`;
+    }
 });
 
 function updateWarsawTime() {
+    const timeElement = document.getElementById('warsaw-time');
+    if (!timeElement) return; // Прекращаем выполнение если элемента нет на странице
+    
     const warsawTime = new Date().toLocaleTimeString('pl-PL', {
         timeZone: 'Europe/Warsaw',
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit'
     });
-    document.getElementById('warsaw-time').textContent = warsawTime;
+    timeElement.textContent = warsawTime;
 }
 
-setInterval(updateWarsawTime, 1000);
-updateWarsawTime();
+// Запускаем интервал только если элемент существует
+if (document.getElementById('warsaw-time')) {
+    setInterval(updateWarsawTime, 1000);
+    updateWarsawTime(); // Первоначальное обновление
+}
 
 function updateLanguage(lang) {
     document.querySelectorAll('[data-translate]').forEach(element => {
@@ -360,208 +502,58 @@ function updateLanguage(lang) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const artItems = document.querySelectorAll('.art-item');
-    
-    artItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (item.classList.contains('blur')) {
-                showAgeVerification();
-            }
+function updatePrices(lang) {
+    document.querySelectorAll('.price-item span[data-price]').forEach(priceSpan => {
+        const price = priceSpan.getAttribute(lang === 'ru' ? 'data-price-ru' : 'data-price');
+        const currency = lang === 'ru' ? '₽' : '$';
+        const prefix = priceSpan.textContent.startsWith('+') ? '+' : '';
+        priceSpan.textContent = `${prefix}${currency}${price}`;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const currentLang = localStorage.getItem('language') || 'en';
+    updatePrices(currentLang);
+
+    document.querySelectorAll('.lang-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const lang = button.getAttribute('data-lang');
+            document.documentElement.setAttribute('data-lang', lang);
+            localStorage.setItem('language', lang);
+            updateTranslations();
+            updatePrices(lang);
         });
     });
 });
-
-function showAgeVerification() {
-    const modal = document.createElement('div');
-    modal.className = 'age-verification-modal';
-    
-    const overlay = document.createElement('div');
-    overlay.className = 'modal-overlay';
-    
-    const currentLang = localStorage.getItem('language') || 'ru';
-    
-    modal.innerHTML = `
-        <h3>${translations[currentLang].ageVerification}</h3>
-        <div class="modal-buttons">
-            <button class="yes-btn">${translations[currentLang].yes}</button>
-            <button class="no-btn">${translations[currentLang].no}</button>
-        </div>
-    `;
-    
-    document.body.appendChild(overlay);
-    document.body.appendChild(modal);
-    
-    const yesBtn = modal.querySelector('.yes-btn');
-    const noBtn = modal.querySelector('.no-btn');
-    
-    yesBtn.addEventListener('click', () => {
-        sessionStorage.setItem('ageVerified', 'true');
-        document.querySelectorAll('.art-item').forEach(item => {
-            item.classList.remove('blur');
-        });
-        closeModal(modal, overlay);
-    });
-    
-    noBtn.addEventListener('click', () => {
-        window.location.href = 'index.html';
-    });
-}
-
-function closeModal(modal, overlay) {
-    if (modal) modal.remove();
-    if (overlay) overlay.remove();
-}
-
-function showArtContent() {
-    document.querySelectorAll('.art-item').forEach(item => {
-        item.classList.remove('blur');
-    });
-}
-
-window.onload = function() {
-    if (window.location.href.includes('art.html') || window.location.pathname.includes('art.html')) {
-        const ageVerified = sessionStorage.getItem('ageVerified');
-        if (!ageVerified) {
-            showAgeVerification();
-        }
-    }
-};
-
-function updateTerms() {
-    const currentLang = document.documentElement.lang || 'ru';
-    const terms = translations[currentLang].terms;
-    const termsList = document.querySelectorAll('.terms-list li');
-    
-    termsList.forEach((item, index) => {
-        item.textContent = terms[index];
-    });
-}
-
-document.addEventListener('DOMContentLoaded', updateTerms);
-document.addEventListener('languageChanged', updateTerms);
-
-document.addEventListener('DOMContentLoaded', function() {
-    if (window.location.href.includes('art.html') || window.location.pathname.includes('art.html')) {
-        const ageVerified = sessionStorage.getItem('ageVerified');
-        
-        if (!ageVerified) {
-            showAgeVerification();
-        } else {
-            showArtContent();
-        }
-    }
-});
-
-function createConfetti(x, y) {
-    const colors = ['#ff69b4', '#00bfff', '#9370db', '#ffd700'];
-    const confettiCount = 50;
-
-    for (let i = 0; i < confettiCount; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        
-        confetti.style.cssText = `
-            position: fixed;
-            left: ${x}px;
-            top: ${y}px;
-            width: 10px;
-            height: 10px;
-            background-color: ${color};
-            transform: rotate(${Math.random() * 360}deg);
-            z-index: 1000;
-            pointer-events: none;
-        `;
-
-        document.body.appendChild(confetti);
-
-        const angle = Math.random() * Math.PI * 2;
-        const velocity = 15 + Math.random() * 15;
-        const vx = Math.cos(angle) * velocity;
-        const vy = Math.sin(angle) * velocity;
-
-        let posX = x;
-        let posY = y;
-
-        const animate = () => {
-            posX += vx;
-            posY += vy + 0.5;
-
-            confetti.style.left = `${posX}px`;
-            confetti.style.top = `${posY}px`;
-
-            if (posY > window.innerHeight) {
-                confetti.remove();
-                return;
-            }
-
-            requestAnimationFrame(animate);
-        };
-
-        animate();
-
-        setTimeout(() => confetti.remove(), 3000);
-    }
-}
 
 function createSnowflakes() {
-    const snowflakesContainer = document.createElement('div');
-    snowflakesContainer.id = 'snowflakes-container';
-    document.body.appendChild(snowflakesContainer);
+    const container = document.createElement('div');
+    container.className = 'snowflakes-container';
+    document.body.appendChild(container);
 
     function createSnowflake() {
         const snowflake = document.createElement('div');
         snowflake.className = 'snowflake';
         snowflake.style.left = Math.random() * window.innerWidth + 'px';
-        snowflake.style.opacity = 0.5 + Math.random() * 0.5;
-        snowflake.style.width = (2 + Math.random() * 3) + 'px';
-        snowflake.style.height = snowflake.style.width;
-
-        snowflakesContainer.appendChild(snowflake);
-
-        const speed = 1 + Math.random() * 2;
-        const rotation = Math.random() * 360;
-        const sway = 50 + Math.random() * 100;
-        let startPositionLeft = parseFloat(snowflake.style.left);
-        let angle = 0;
-        let currentTop = -10;
-
-        function fall() {
-            if (!document.getElementById('snowflakes-container')) {
-                return;
-            }
-
-            currentTop += speed;
-            angle += 0.02;
-
-            snowflake.style.transform = `rotate(${rotation + angle}deg)`;
-            snowflake.style.left = startPositionLeft + Math.sin(angle) * sway + 'px';
-            snowflake.style.top = currentTop + 'px';
-
-            if (currentTop > window.innerHeight) {
-                if (snowflake.parentNode) {
-                    snowflake.remove();
-                }
-                if (document.getElementById('snowflakes-container')) {
-                    createSnowflake();
-                }
-                return;
-            }
-
-            requestAnimationFrame(fall);
-        }
-
-        fall();
+        snowflake.style.opacity = Math.random();
+        snowflake.style.width = snowflake.style.height = Math.random() * 4 + 2 + 'px';
+        
+        container.appendChild(snowflake);
+        
+        const animationDuration = Math.random() * 3 + 2;
+        const xDistance = (Math.random() - 0.5) * 200;
+        
+        snowflake.animate([
+            { transform: 'translateY(0) translateX(0)', opacity: 1 },
+            { transform: `translateY(${window.innerHeight}px) translateX(${xDistance}px)`, opacity: 0.3 }
+        ], {
+            duration: animationDuration * 1000,
+            easing: 'linear'
+        }).onfinish = () => snowflake.remove();
     }
 
-    for (let i = 0; i < 50; i++) {
-        createSnowflake();
-    }
-
-    return snowflakesContainer;
+    const interval = setInterval(createSnowflake, 50);
+    return container;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -592,48 +584,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener('click', function(e) {
-    const colors = ['#ff0000', '#ff8000', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#8000ff'];
-    const sparkCount = 8;
-
-    for (let i = 0; i < sparkCount; i++) {
-        const spark = document.createElement('div');
-        spark.className = 'spark';
-        
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        spark.style.backgroundColor = color;
-        spark.style.color = color;
-        
-        spark.style.left = e.clientX + 'px';
-        spark.style.top = e.clientY + 'px';
-        
-        const angle = (Math.PI * 2 * i) / sparkCount;
-        const velocity = 10 + Math.random() * 10;
-        const vx = Math.cos(angle) * velocity;
-        const vy = Math.sin(angle) * velocity;
-        
-        document.body.appendChild(spark);
-        
-        let posX = e.clientX;
-        let posY = e.clientY;
-        
-        function animateSpark() {
-            posX += vx;
-            posY += vy;
-            spark.style.left = posX + 'px';
-            spark.style.top = posY + 'px';
-            
-            if (spark.style.opacity > 0) {
-                requestAnimationFrame(animateSpark);
-            } else {
-                spark.remove();
-            }
-        }
-        
-        requestAnimationFrame(animateSpark);
-        
-        setTimeout(() => spark.remove(), 500);
-    }
-});
-
-document.body.style.cursor = 'url("Assets/Cursor.png"), auto'; 
+// Заменяем обработчик вкладок на более простой
+function switchTab(tabId) {
+    // Убираем активный класс у всех кнопок
+    document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Убираем активный класс у всех содержимых вкладок
+    document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    // Добавляем активный класс нужной кнопке
+    event.target.classList.add('active');
+    
+    // Показываем нужное содержимое
+    document.getElementById(tabId).classList.add('active');
+} 

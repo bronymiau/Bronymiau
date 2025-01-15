@@ -44,7 +44,7 @@ const translations = {
         sfwArtPrice: "SFW art",
         art5000: "Art 5000x5000",
         alicorns: "Alicorns",
-        udder: "Udder",
+        crotchboobs: "Crotchboobs",
         stallions: "For stallions",
         twoCharacters: "For two characters",
         
@@ -62,7 +62,23 @@ const translations = {
         
         ageVerification: "Are you 18 or older?",
         yes: "Yes",
-        no: "No"
+        no: "No",
+
+        bio: "Bio",
+        lore: "Lore",
+        bioText: "Shau is a graceful and lightweight bat-pony mouse, barely heavier than a feather. At 19 years old, her personality is a mix of contrasts: playful, a bit lazy, and often flirting on the edge of mischief. Her sweet and charming appearance hides a voracious appetite for life. Shau is omnivorous but has a particular fondness for sweets, with her ultimate treat being the sweet, vibrant blood of others. The more blood she drinks, the stronger and more energized her body becomes. However, her forgetful nature often leads to chaos, as she tends to forget everything by the next day.",
+        weaknesses: "Weaknesses:",
+        weakness1: "Ultrasound irritates her sensitive ears, depriving her of coordination.",
+        weakness2: "Strange and inexplicable phobia of rabbits: she avoids them, although she doesn't admit it.",
+        weakness3: "Some foods cause her aversion, especially spicy or too sour ones.",
+        strengths: "Strengths:",
+        strength1: "Acute hearing, allowing her to detect even the faintest sound vibrations.",
+        strength2: "Sense of smell capable of finding targets at great distances.",
+        strength3: "Perfect night vision.",
+        loreText1: "Shau was born in the secluded Eastern regions of Equestria, far from the lights and bustle of city life. These lands, shrouded in mists and filled with the rustling of wings, became her first home. Her parents, wanderers and loners by nature, left her to fend for herself from a young age. She quickly learned how to hunt and survive in a world that often felt indifferent.",
+        loreText2: "Loneliness became her constant companion for years. When she was younger, a colony of bat ponies offered her a place among them, but Shau, valuing her freedom above all else, fled and chose to walk her path alone. She quickly became a skilled thief and hunter, living only for herself.",
+        loreText3: "One fateful night, her journey led her to the technomagical city of Canterlot, where she encountered Princess Luna. Mistaking the princess for a threat, Shau attacked her. But instead of punishment, Luna saw a reflection of her younger self in the fiery and lost bat pony. She offered Shau a chance: to train, to find herself, and to learn how to balance her dark nature with the ability to shine in the world.",
+        loreText4: "Now, Shau continues her journey, aiming to become a protector of other nocturnal beings like herself. Her ultimate goal is to prove that even the darkest of creatures can play a vital role in something greater."
     },
     ru: {
         main: "Главная",
@@ -104,14 +120,14 @@ const translations = {
         other: "и прочее",
 
         priceList: "Прайс-лист",
-        art2028: "Арт 2028x2028 - 500₽",
-        nsfwArtPrice: "NSFW арт - 500₽",
-        sfwArtPrice: "SFW арт - 1000₽",
-        art5000: "Арт 5000x5000 - 250₽",
-        alicorns: "Аликорны - 250₽",
-        udder: "Вымя - 250₽",
-        stallions: "Для жеребцов - 350₽",
-        twoCharacters: "Для двух персонажей - 500₽",
+        art2028: "Арт 2028x2028",
+        nsfwArtPrice: "NSFW арт",
+        sfwArtPrice: "SFW арт",
+        art5000: "Арт 5000x5000",
+        alicorns: "Аликорны",
+        crotchboobs: "Вымя",
+        stallions: "Для жеребцов",
+        twoCharacters: "Для двух персонажей",
         
         portfolio: "Портфолио",
         termsAndConditions: "Условия и правила заказа",
@@ -127,6 +143,22 @@ const translations = {
         
         ageVerification: "Вам есть 18 лет?",
         yes: "Да",
-        no: "Нет"
+        no: "Нет",
+
+        bio: "Био",
+        lore: "Лор",
+        bioText: "Шау — изящная и лёгкая бэтпони-мышь весом чуть больше перышка. Ей 19 лет, и её характер пропитан контрастами: она игривая, немного ленивая и любит пошутить на грани, но её милый вид обманчив. Шау всеядна, но особенно обожает сладости, причём её главный десерт — это кровь, наполненная жизнью и энергией. Чем больше она пьёт, тем быстрее её организм восстанавливается и обретает новые силы. Однако, несмотря на это, она остаётся забывчивой, порой утраивая хаос вокруг себя из-за того, что ничего не помнит на следующий день.",
+        weaknesses: "Слабости:",
+        weakness1: "Ультразвук раздражает её чувствительные уши, лишая её координации.",
+        weakness2: "Странная и необъяснимая фобия кроликов: она избегает их, хотя и не признаётся в этом.",
+        weakness3: "Некоторые блюда вызывают у неё неприязнь, особенно пряные или слишком кислые.",
+        strengths: "Сила:",
+        strength1: "Острейший слух, позволяющий улавливать даже самые слабые звуковые колебания.",
+        strength2: "Обоняние, способное находить цель на огромных расстояниях.",
+        strength3: "Идеальное зрение в темноте.",
+        loreText1: "Шау появилась на свет в уединённых Восточных регионах Эквестрии, вдали от света городов и шумной жизни. Эти земли, наполненные туманами и шорохами ночей, были её первым домом. Её родители, одиночки и вечные странники, оставляли малышку одну с ранних лет. Так она быстро научилась выживать и охотиться в суровом мире.",
+        loreText2: "Однако одиночество стало её спутником на долгие годы. Когда она была моложе, ей предложили присоединиться к колонии бэтпони, но Шау, ценившая свободу больше всего, сбежала, предпочтя одиночный путь. Она быстро стала искусной воровкой и охотницей, живя только для себя.",
+        loreText3: "Однажды её путь привёл в технологично-магический Кантерлот, где она встретила принцессу Луну. Шау, не зная её, посчитала Луну угрозой и атаковала её. Вместо возмездия принцесса увидела в ней себя юную и предложила Шау шанс: обучиться, найти себя и понять, как совмещать тёмную сущность с возможностью сиять в этом мире.",
+        loreText4: "Теперь Шау продолжает своё путешествие, стремясь стать защитницей таких же, как она, ночных созданий. Её цель — показать, что даже самые тёмные существа могут быть частью чего-то великого."
     }
 }; 

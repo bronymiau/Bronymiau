@@ -17,6 +17,19 @@
     </script>
 </head>
 <body>
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    <div id="ageVerificationModal" class="modal">
+        <div class="age-verification-content">
+            <h2 data-translate="ageVerification">Вам есть 18 лет?</h2>
+            <div class="modal-buttons">
+                <button id="yesAge" data-translate="yes">Да</button>
+                <button id="noAge" data-translate="no">Нет</button>
+            </div>
+        </div>
+    </div>
     <div class="page-container">
         <div class="center-nav">
             <nav class="navbar">
@@ -44,53 +57,53 @@
                     <h2 data-translate="priceList">Прайс-лист</h2>
                     <div class="price-list">
                         <div class="price-item">
-                            <span data-translate="art2028">Арт 2028x2028 - 500₽</span>
-                            <span>$10</span>
+                            <span data-translate="art2028">Art 2028x2028</span>
+                            <span data-price="10" data-price-ru="500">$10</span>
                         </div>
                         <div class="price-item">
-                            <span data-translate="nsfwArtPrice">NSFW арт - 500₽</span>
-                            <span>+$10</span>
+                            <span data-translate="nsfwArtPrice">NSFW art</span>
+                            <span data-price="10" data-price-ru="500">+$10</span>
                         </div>
                         <div class="price-item">
-                            <span data-translate="sfwArtPrice">SFW арт - 1000₽</span>
-                            <span>+$20</span>
+                            <span data-translate="sfwArtPrice">SFW art</span>
+                            <span data-price="20" data-price-ru="1000">+$20</span>
                         </div>
                         <div class="price-item">
-                            <span data-translate="art5000">Арт 5000x5000 - 250₽</span>
-                            <span>$20</span>
+                            <span data-translate="art5000">Art 5000x5000</span>
+                            <span data-price="20" data-price-ru="750">$20</span>
                         </div>
                         <div class="price-item">
-                            <span data-translate="alicorns">Аликорны - 250₽</span>
-                            <span>$5</span>
+                            <span data-translate="alicorns">Alicorns</span>
+                            <span data-price="5" data-price-ru="250">$5</span>
                         </div>
                         <div class="price-item">
-                            <span data-translate="crotchboobs">Вымя - 250₽</span>
-                            <span>+$5</span>
+                            <span data-translate="crotchboobs">Crotchboobs</span>
+                            <span data-price="5" data-price-ru="250">+$5</span>
                         </div>
                         <div class="price-item">
-                            <span data-translate="stallions">Для жеребцов - 350₽</span>
-                            <span>+$7</span>
+                            <span data-translate="stallions">For stallions</span>
+                            <span data-price="7" data-price-ru="350">+$7</span>
                         </div>
                         <div class="price-item">
-                            <span data-translate="twoCharacters">Для двух персонажей - 500₽</span>
-                            <span>+$10</span>
+                            <span data-translate="twoCharacters">For two characters</span>
+                            <span data-price="10" data-price-ru="500">+$10</span>
                         </div>
                     </div>
                 </div>
                 <div class="content-block">
                     <h2 data-translate="portfolio">Портфолио</h2>
                     <div class="portfolio-grid">
-                        <div class="art-item blur" id="art1">
-                            <img src="Assets/art1.png" alt="Art 1">
+                        <div class="art-item">
+                            <img src="Assets/art1.png" alt="Art 1" style="pointer-events: auto;">
                         </div>
-                        <div class="art-item blur" id="art2">
-                            <img src="Assets/art2.png" alt="Art 2">
+                        <div class="art-item">
+                            <img src="Assets/art2.png" alt="Art 2" style="pointer-events: auto;">
                         </div>
-                        <div class="art-item blur" id="art3">
-                            <img src="Assets/art3.png" alt="Art 3">
+                        <div class="art-item">
+                            <img src="Assets/art3.png" alt="Art 3" style="pointer-events: auto;">
                         </div>
-                        <div class="art-item blur" id="art4">
-                            <img src="Assets/art4.png" alt="Art 4">
+                        <div class="art-item">
+                            <img src="Assets/art4.png" alt="Art 4" style="pointer-events: auto;">
                         </div>
                     </div>
                 </div>
@@ -114,6 +127,13 @@
                 </div>
             </div>
         </main>
+
+        <footer class="footer">
+            <img src="Assets/Bottom.gif" alt="" class="bottom-decoration">
+            <div class="footer-content">
+                <p>© <script>document.write(new Date().getFullYear())</script> Bronymiau. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
 
     <div class="theme-switcher">
