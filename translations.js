@@ -98,7 +98,8 @@ const translations = {
         feature3: "Dynamic environment that changes based on the main character's mental state",
         feature4: "Character relationship system that affects story development",
         fundingProgress: "Funding Progress",
-        supportProject: "Support Project"
+        supportProject: "Support Project",
+        ourSupporters: "Our Supporters"
     },
     ru: {
         main: "Главная",
@@ -199,6 +200,7 @@ const translations = {
         feature3: "Динамическое окружение, меняющееся в зависимости от психического состояния главной героини",
         feature4: "Система отношений между персонажами, влияющая на развитие сюжета",
         fundingProgress: "Прогресс сбора средств",
-        supportProject: "Поддержать проект"
+        supportProject: "Поддержать проект",
+        ourSupporters: "Наши поддержавшие"
     }
 }; 
