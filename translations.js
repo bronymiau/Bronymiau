@@ -87,7 +87,18 @@ const translations = {
         
         Simple and user-friendly interface makes file conversion quick and easy.`,
         inDevelopment: "In Development",
-        download: "Download"
+        download: "Download",
+        drearthDesc: "Two ponies — best friends, inseparable and always supporting each other in any circumstances. Over time, the older pony begins to develop serious mental problems, causing her to see vivid hallucinations. Her unstable magic only exacerbates the situation, leading to a series of catastrophic events. Together they venture into the unknown through her subconscious, facing inner chaos and striving for understanding and resolution of what's happening.",
+        topDown: "Top-Down",
+        psychologicalHorror: "Psychological Horror",
+        puzzle: "Puzzle",
+        gameplayFeatures: "Gameplay Features",
+        feature1: "Unique combat system combining magical abilities and tactical planning",
+        feature2: "Puzzles based on interaction between two characters and their unique abilities",
+        feature3: "Dynamic environment that changes based on the main character's mental state",
+        feature4: "Character relationship system that affects story development",
+        fundingProgress: "Funding Progress",
+        supportProject: "Support Project"
     },
     ru: {
         main: "Главная",
@@ -177,6 +188,17 @@ const translations = {
         
         Простой и удобный интерфейс делает конвертацию файлов быстрой и понятной.`,
         inDevelopment: "В разработке",
-        download: "Скачать"
+        download: "Скачать",
+        drearthDesc: "Две пони — лучшие друзья, неразлучные и всегда поддерживающие друг друга в любых обстоятельствах. Со временем у старшей пони начинают развиваться серьёзные психические проблемы, из-за которых она начинает видеть яркие галлюцинации. Её нестабильная магия лишь усугубляет ситуацию, приводя к череде катастрофических событий. Вместе они отправляются в неизвестность по её подсознанию, сталкиваясь с внутренним хаосом и стремясь к пониманию и разрешению происходящего.",
+        topDown: "Вид сверху",
+        psychologicalHorror: "Психологический хоррор",
+        puzzle: "Головоломка",
+        gameplayFeatures: "Особенности игрового процесса",
+        feature1: "Уникальная боевая система, сочетающая магические способности и тактическое планирование",
+        feature2: "Головоломки, основанные на взаимодействии двух персонажей и их уникальных способностях",
+        feature3: "Динамическое окружение, меняющееся в зависимости от психического состояния главной героини",
+        feature4: "Система отношений между персонажами, влияющая на развитие сюжета",
+        fundingProgress: "Прогресс сбора средств",
+        supportProject: "Поддержать проект"
     }
 }; 

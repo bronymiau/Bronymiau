@@ -31,6 +31,9 @@ let snowflakeInterval;
         e.preventDefault();
         this.classList.add('transitioning');
         
+        const currentLang = localStorage.getItem('language') || 'en';
+        sessionStorage.setItem('initialLanguage', currentLang);
+        
         rainbowDash.style.transition = 'none';
         rainbowDash.style.transform = 'translateY(-50%) translateX(0)';
         
@@ -608,4 +611,17 @@ function switchTab(tabId) {
     
     // Показываем нужное содержимое
     document.getElementById(tabId).classList.add('active');
-} 
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Немедленно применяем сохраненный язык
+    const initialLang = sessionStorage.getItem('initialLanguage') || localStorage.getItem('language') || 'en';
+    document.documentElement.setAttribute('data-lang', initialLang);
+    updateLanguage(initialLang);
+    updatePrices(initialLang);
+    
+    // Обновляем активную кнопку языка
+    document.querySelectorAll('.lang-button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === initialLang);
+    });
+}); 

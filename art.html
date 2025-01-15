@@ -11,8 +11,16 @@
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'pink';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            const savedLang = localStorage.getItem('language') || 'en';
-            document.documentElement.setAttribute('data-lang', savedLang);
+            
+            // Используем sessionStorage для немедленной установки языка
+            const initialLang = sessionStorage.getItem('initialLanguage') || localStorage.getItem('language') || 'en';
+            document.documentElement.setAttribute('data-lang', initialLang);
+            
+            // Скрываем контент до полной загрузки правильного языка
+            document.documentElement.style.visibility = 'hidden';
+            document.addEventListener('DOMContentLoaded', () => {
+                document.documentElement.style.visibility = 'visible';
+            });
         })();
     </script>
 </head>
@@ -44,6 +52,9 @@
                 </a>
                 <a href="programming.html" class="nav-item">
                     <div class="nav-oval" data-translate="programming">Programming</div>
+                </a>
+                <a href="drearth.html" class="nav-item">
+                    <div class="nav-oval">Drearth</div>
                 </a>
             </nav>
             <div class="nav-indicator"></div>

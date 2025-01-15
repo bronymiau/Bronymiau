@@ -8,6 +8,77 @@
     --gradient-border: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
 }
 
+
+
+/* Эффект для кнопки Drearth в навигации */
+.nav-item[href="drearth.html"] {
+    position: relative;
+    isolation: isolate;
+}
+
+.nav-item[href="drearth.html"]::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    background: linear-gradient(
+        135deg,
+        transparent 20%,
+        var(--primary-color) 50%,
+        transparent 80%
+    );
+    opacity: 0.15;
+    filter: blur(10px);
+    z-index: -1;
+    transition: all 0.4s ease;
+    border-radius: 30px;
+}
+
+@keyframes rotateGradient {
+    0% {
+        transform: rotate(0deg) scale(0.95);
+    }
+    100% {
+        transform: rotate(360deg) scale(0.95);
+    }
+}
+
+.nav-item[href="drearth.html"]:hover::before {
+    opacity: 0.25;
+    filter: blur(15px);
+    transform: scale(1.1);
+    border-radius: 30px;
+}
+
+.nav-item[href="drearth.html"]:hover::after {
+    opacity: 0.15;
+    filter: blur(3px);
+    border-radius: 30px;
+}
+
+.nav-item[href="drearth.html"] .nav-oval {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.03),
+        rgba(255, 255, 255, 0.05)
+    );
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-item[href="drearth.html"]:hover .nav-oval {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(var(--primary-color), 0.2);
+    transform: translateY(-2px) scale(1.05);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.08)
+    );
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -779,6 +850,77 @@ body {
 
 .art-item:hover {
     transform: scale(1.02);
+}
+
+/* Стили для прогресс-бара */
+.funding-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--block-bg);
+    border-radius: 15px;
+    border: 1px solid var(--primary-color);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-radius: 25px;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-color);
+    font-weight: bold;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.donate-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--primary-color);
+    color: var(--background-color);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.donate-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(var(--primary-color), 0.3);
+}
+
+@media screen and (max-width: 768px) {
+    .funding-container {
+        margin-top: 1rem;
+        padding: 0.8rem;
+    }
+
+    .progress-bar {
+        height: 20px;
+    }
+
+    .donate-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
 }
 
 /* Обновляем медиа-запросы */
@@ -1963,5 +2105,112 @@ body {
 
     .project-image-wrapper {
         transform: perspective(1000px) rotateY(-10deg);
+    }
+}
+
+/* Эффект для кнопки Drearth */
+.nav-item a[href="drearth.html"] .nav-oval {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item a[href="drearth.html"] .nav-oval::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        var(--primary-color),
+        transparent 30%
+    );
+    animation: rotateSparkle 3s linear infinite;
+    opacity: 0.3;
+}
+
+.nav-item a[href="drearth.html"] .nav-oval::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        var(--primary-color) 0%,
+        transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.nav-item a[href="drearth.html"]:hover .nav-oval::after {
+    opacity: 0.2;
+}
+
+@keyframes rotateSparkle {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Обновленные стили для проекта Drearth */
+.drearth-showcase {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin: 2rem auto;
+    max-width: 1400px;
+}
+
+.drearth-image-container {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: transform 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.drearth-image-container:hover {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.drearth-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+}
+
+.drearth-info {
+    background: var(--block-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.genre-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.genre-tag {
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: var(--background-color);
+    border-radius: 15px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+@media screen and (max-width: 1024px) {
+    .drearth-showcase {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
