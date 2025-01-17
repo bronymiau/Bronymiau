@@ -390,21 +390,25 @@ body {
 [data-theme="pink"] {
     --primary-color: #ff69b4;
     --secondary-color: #9b59b6;
+    --timer-color: #ff69b4;  /* Розовый */
 }
 
 [data-theme="blue"] {
     --primary-color: #00bfff;
     --secondary-color: #4169e1;
+    --timer-color: #3498db;  /* Синий */
 }
 
 [data-theme="purple"] {
     --primary-color: #9370db;
     --secondary-color: #483d8b;
+    --timer-color: #9b59b6;  /* Фиолетовый */
 }
 
 [data-theme="yellow"] {
     --primary-color: #ffd700;
     --secondary-color: #ffa500;
+    --timer-color: #FFD700;  /* Золотой */
 }
 
 /* Переключатель тем */
@@ -2639,4 +2643,45 @@ body {
     .birthday-block {
         padding: 0.8rem;
     }
+}
+
+:root[data-theme="pink"] {
+    --timer-color: #ff69b4;  /* Розовый */
+}
+
+:root[data-theme="purple"] {
+    --timer-color: #9b59b6;  /* Фиолетовый */
+}
+
+:root[data-theme="blue"] {
+    --timer-color: #3498db;  /* Синий */
+}
+
+:root[data-theme="yellow"] {
+    --timer-color: #FFD700;  /* Золотой */
+}
+
+.countdown-row span[id] {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--timer-color);
+    min-width: 60px;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(var(--timer-color), 0.6);
+}
+
+.separator {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--timer-color);
+    opacity: 0.6;
+    margin: 0 0.5rem;
+}
+
+.birthday-block {
+    border: 1px solid rgba(var(--timer-color), 0.2);
+}
+
+.birthday-block h3 {
+    text-shadow: 0 0 10px rgba(var(--timer-color), 0.5);
 }

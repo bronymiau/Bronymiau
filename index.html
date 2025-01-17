@@ -14,11 +14,9 @@
             const savedTheme = localStorage.getItem('theme') || 'pink';
             document.documentElement.setAttribute('data-theme', savedTheme);
             
-            // Используем sessionStorage для немедленной установки языка
             const initialLang = sessionStorage.getItem('initialLanguage') || localStorage.getItem('language') || 'en';
             document.documentElement.setAttribute('data-lang', initialLang);
             
-            // Скрываем контент до полной загрузки правильного языка
             document.documentElement.style.visibility = 'hidden';
             document.addEventListener('DOMContentLoaded', () => {
                 document.documentElement.style.visibility = 'visible';
