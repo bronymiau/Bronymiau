@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.classList.add('preload');
+    
+    setTimeout(() => {
+        document.documentElement.classList.remove('preload');
+    }, 100);
+    
+    const controlPanels = document.querySelectorAll('.theme-switcher, .language-switcher');
+    controlPanels.forEach(panel => {
+        panel.style.visibility = 'visible';
+        panel.style.opacity = '1';
+    });
+});
+
 let endTime = new Date('2025-02-09T00:00:00+01:00').getTime();
 let isSnowEnabled = false;
 let snowflakeInterval;

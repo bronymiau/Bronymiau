@@ -2746,3 +2746,48 @@ body {
         padding: 0 0.05rem;
     }
 }
+
+/* Фиксированное позиционирование для панелей управления */
+.theme-switcher,
+.language-switcher {
+    position: fixed;
+    bottom: 20px;
+    z-index: 1001;
+    display: flex;
+    gap: 10px;
+    transition: none; /* Отключаем все переходы */
+    will-change: transform; /* Оптимизация производительности */
+    backface-visibility: hidden; /* Предотвращение мерцания */
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.theme-switcher {
+    left: 20px;
+}
+
+.language-switcher {
+    left: 180px;
+}
+
+/* Предотвращаем исчезновение на мобильных устройствах */
+@media screen and (max-width: 768px) {
+    .theme-switcher,
+    .language-switcher {
+        bottom: 10px;
+    }
+
+    .theme-switcher {
+        left: 10px;
+    }
+
+    .language-switcher {
+        left: 150px;
+    }
+}
+
+/* Отключаем все анимации при загрузке страницы */
+.preload * {
+    transition: none !important;
+}
