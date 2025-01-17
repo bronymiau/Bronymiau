@@ -99,7 +99,13 @@ const translations = {
         feature4: "Character relationship system that affects story development",
         fundingProgress: "Funding Progress",
         supportProject: "Support Project",
-        ourSupporters: "Our Supporters"
+        ourSupporters: "Our Supporters",
+        birthdayCountdown: "Time until birthday",
+        days: "days",
+        hours: "hours",
+        minutes: "minutes",
+        seconds: "seconds",
+        birthdayWish: "HAPPY BIRTHDAY TO ME!"
     },
     ru: {
         main: "Главная",
@@ -201,6 +207,12 @@ const translations = {
         feature4: "Система отношений между персонажами, влияющая на развитие сюжета",
         fundingProgress: "Прогресс сбора средств",
         supportProject: "Поддержать проект",
-        ourSupporters: "Наши поддержавшие"
+        ourSupporters: "Наши поддержавшие",
+        birthdayCountdown: "До дня рождения осталось",
+        days: "дней",
+        hours: "часов",
+        minutes: "минут",
+        seconds: "секунд",
+        birthdayWish: "С ДНЁМ РОЖДЕНИЯ МЕНЯ!"
     }
 }; 

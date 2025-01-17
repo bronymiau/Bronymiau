@@ -165,10 +165,74 @@ body {
 .content {
     flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     padding: 2rem;
     margin-top: -2rem;
+}
+
+.birthday-block {
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    margin: 2rem auto;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+.birthday-block h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countdown-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.countdown-row span[id] {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FFD700;
+    min-width: 60px;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+.time-label {
+    font-size: 1.2rem;
+    color: #fff;
+    opacity: 0.8;
+    margin: 0 0.2rem;
+}
+
+.separator {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFD700;
+    opacity: 0.6;
+    margin: 0 0.5rem;
+}
+
+.grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
 }
 
 .oval-container {
@@ -1235,7 +1299,7 @@ body {
     }
 }
 
-/* Обновляем медиа-запрос для мобильных устройств */
+/* Обновляем медиа-запросы */
 @media screen and (max-width: 768px) {
     .language-switcher {
         left: 200px;
@@ -1546,7 +1610,7 @@ body {
     }
 
     .theme-button {
-        width: 24px;
+        width: 24px; /* Увеличили размер кнопок */
         height: 24px;
     }
 
@@ -2435,5 +2499,144 @@ body {
     .donor-avatar {
         width: 60px;
         height: 60px;
+    }
+}
+
+/* Оптимизированные стили для конфетти и шариков */
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+}
+
+.balloon {
+    position: fixed;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes balloonRise {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(20deg);
+        opacity: 1;
+    }
+}
+
+/* Оптимизация производительности */
+.balloon {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .balloon {
+        display: none;
+    }
+}
+
+/* Добавьте эти стили к существующему style.css */
+.firework-particle {
+    position: absolute;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+@keyframes fireworkFade {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0); }
+}
+
+/* Обновите стили для birthday-block */
+.birthday-block {
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    margin: 2rem auto;
+    max-width: 800px;
+    overflow: hidden; /* Чтобы частицы не выходили за пределы блока */
+}
+
+/* Добавьте медиа-запрос для оптимизации на мобильных устройствах */
+@media (prefers-reduced-motion: reduce) {
+    .firework-particle {
+        display: none;
+    }
+}
+
+/* Обновляем стили для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .birthday-block {
+        padding: 1rem;
+        margin: 0.5rem;
+        width: 95%; /* Уменьшаем ширину блока */
+    }
+
+    .countdown-row {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        justify-content: center;
+        flex-wrap: nowrap; /* Запрещаем перенос */
+        font-size: 0.9rem;
+    }
+
+    .countdown-row span[id] {
+        font-size: 1.5rem;
+        min-width: 28px; /* Уменьшаем минимальную ширину */
+    }
+
+    .time-label {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+
+    .separator {
+        font-size: 1.2rem;
+        margin: 0 0.1rem;
+    }
+
+    .birthday-block h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media screen and (max-width: 380px) {
+    .countdown-row span[id] {
+        font-size: 1.3rem;
+        min-width: 25px;
+    }
+
+    .time-label {
+        font-size: 0.7rem;
+    }
+
+    .separator {
+        font-size: 1rem;
+        margin: 0 0.1rem;
+    }
+
+    .birthday-block {
+        padding: 0.8rem;
     }
 }
