@@ -317,6 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', theme);
             
             document.body.style.transition = 'all 0.5s ease';
+            updateTimerTheme();
         }
     });
 
@@ -468,6 +469,158 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentYear = new Date().getFullYear();
         yearElement.innerHTML = `© ${currentYear} Bronymiau. All rights reserved.`;
     }
+
+    function updateTimerTheme() {
+        const currentTheme = localStorage.getItem('theme') || 'pink';
+        const root = document.documentElement;
+        
+        switch(currentTheme) {
+            case 'pink':
+                root.style.setProperty('--timer-color', '#ff69b4');
+                break;
+            case 'purple':
+                root.style.setProperty('--timer-color', '#9b59b6');
+                break;
+            case 'blue':
+                root.style.setProperty('--timer-color', '#3498db');
+                break;
+            case 'yellow':
+                root.style.setProperty('--timer-color', '#FFD700');
+                break;
+        }
+    }
+
+    updateTimerTheme();
+
+    function updateBirthdayCountdown() {
+        const countdownElement = document.getElementById('countdown');
+        const messageElement = document.getElementById('birthday-message');
+        const now = new Date().toLocaleString('en-US', { timeZone: 'Europe/Warsaw' });
+        const currentTime = new Date(now).getTime();
+        const diff = endTime - currentTime;
+
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+
+        if (daysElement && hoursElement && minutesElement && secondsElement) {
+            if (diff <= 0) {
+                if (countdownElement) countdownElement.style.display = 'none';
+                if (messageElement) messageElement.style.display = 'block';
+                showBirthdayMessage();
+            } else {
+                if (countdownElement) countdownElement.style.display = 'block';
+                if (messageElement) messageElement.style.display = 'none';
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                daysElement.textContent = String(days).padStart(2, '0');
+                hoursElement.textContent = String(hours).padStart(2, '0');
+                minutesElement.textContent = String(minutes).padStart(2, '0');
+                secondsElement.textContent = String(seconds).padStart(2, '0');
+            }
+        }
+    }
+
+    function showBirthdayMessage() {
+        const messageElement = document.getElementById('birthday-message');
+        if (messageElement) {
+            messageElement.style.display = 'block';
+        }
+
+        for (let i = 0; i < 3; i++) {
+            setTimeout(() => {
+                createBalloons(5);
+            }, i * 500);
+        }
+
+        const effectInterval = setInterval(() => {
+            if (!document.hidden) {
+                createBalloons(3);
+            }
+        }, 2000);
+
+        window._birthdayEffectInterval = effectInterval;
+    }
+
+    function createBalloons(count = 3) {
+        const oldBalloons = document.querySelectorAll('.balloon');
+        oldBalloons.forEach(balloon => {
+            const rect = balloon.getBoundingClientRect();
+            if (rect.bottom < 0) {
+                balloon.remove();
+            }
+        });
+
+        const currentBalloons = document.querySelectorAll('.balloon').length;
+        if (currentBalloons > 15) {
+            return;
+        }
+
+        for (let i = 0; i < count; i++) {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            
+            const xPos = Math.random() * (window.innerWidth - 40);
+            const color = getRandomColor();
+            const size = 30 + Math.random() * 20;
+            
+            balloon.style.cssText = `
+                position: fixed;
+                left: ${xPos}px;
+                bottom: -${size}px;
+                width: ${size}px;
+                height: ${size * 1.25}px;
+                background-color: ${color};
+                border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+                animation: balloonRise 8s ease-out forwards;
+                pointer-events: none;
+                z-index: 1000;
+            `;
+            
+            document.body.appendChild(balloon);
+            
+            setTimeout(() => {
+                balloon.remove();
+            }, 8000);
+        }
+    }
+
+    function getRandomColor() {
+        const colors = [
+            '#ff69b4', // розовый
+            '#9b59b6', // пурпурный
+            '#3498db', // синий
+            '#f1c40f', // желтый
+            '#2ecc71', // зеленый
+            '#e74c3c', // красный
+            '#1abc9c'  // бирюзовый
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes balloonRise {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg);
+            }
+        }
+        .balloon {
+            transition: all 0.3s ease;
+        }
+    `;
+    document.head.appendChild(style);
+
+    updateBirthdayCountdown();
+    setInterval(updateBirthdayCountdown, 1000);
 });
 
 function updateWarsawTime() {
