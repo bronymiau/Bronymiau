@@ -23,6 +23,48 @@
             });
         })();
     </script>
+    <style>
+        :root[data-theme="pink"] {
+            --timer-color: #ff69b4;
+        }
+
+        :root[data-theme="purple"] {
+            --timer-color: #9b59b6;
+        }
+
+        :root[data-theme="blue"] {
+            --timer-color: #3498db;
+        }
+
+        :root[data-theme="yellow"] {
+            --timer-color: #FFD700;
+        }
+
+        .countdown-row span[id] {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--timer-color);
+            min-width: 60px;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(var(--timer-color), 0.6);
+        }
+
+        .separator {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--timer-color);
+            opacity: 0.6;
+            margin: 0 0.5rem;
+        }
+
+        .birthday-block {
+            border: 1px solid rgba(var(--timer-color), 0.2);
+        }
+
+        .birthday-block h3 {
+            text-shadow: 0 0 10px rgba(var(--timer-color), 0.5);
+        }
+    </style>
 </head>
 <body>
     <div class="page-container">
