@@ -2579,7 +2579,6 @@ body {
     overflow: hidden; /* Чтобы частицы не выходили за пределы блока */
 }
 
-/* Добавьте медиа-запрос для оптимизации на мобильных устройствах */
 @media (prefers-reduced-motion: reduce) {
     .firework-particle {
         display: none;
@@ -2590,59 +2589,62 @@ body {
 @media screen and (max-width: 768px) {
     .birthday-block {
         padding: 1rem;
-        margin: 0.5rem;
-        width: 95%; /* Уменьшаем ширину блока */
+        margin: 1rem;
+        width: auto;
+    }
+
+    .countdown-display {
+        overflow-x: hidden;
     }
 
     .countdown-row {
-        display: flex;
-        align-items: center;
-        gap: 0.2rem;
+        flex-wrap: nowrap;
         justify-content: center;
-        flex-wrap: nowrap; /* Запрещаем перенос */
-        font-size: 0.9rem;
-    }
-
-    .countdown-row span[id] {
-        font-size: 1.5rem;
-        min-width: 28px; /* Уменьшаем минимальную ширину */
-    }
-
-    .time-label {
+        gap: 0.2rem;
         font-size: 0.8rem;
-        margin: 0;
     }
 
-    .separator {
-        font-size: 1.2rem;
-        margin: 0 0.1rem;
-    }
-
-    .birthday-block h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.8rem;
-    }
-}
-
-/* Для очень маленьких экранов */
-@media screen and (max-width: 380px) {
     .countdown-row span[id] {
-        font-size: 1.3rem;
-        min-width: 25px;
+        font-size: 1.2rem;
+        min-width: 24px;
     }
 
     .time-label {
         font-size: 0.7rem;
+        margin: 0;
     }
 
     .separator {
         font-size: 1rem;
         margin: 0 0.1rem;
     }
+}
 
-    .birthday-block {
-        padding: 0.8rem;
+/* Уменьшаем количество снежинок на мобильных устройствах */
+@media screen and (max-width: 768px) {
+    .snowflake {
+        opacity: 0.5;
+        /* Уменьшаем размер снежинок */
+        width: 2px !important;
+        height: 2px !important;
     }
+}
+
+/* Блокировка выделения и перетаскивания для кнопок и изображений */
+.theme-button,
+.lang-button,
+.snow-button,
+.lang-flag,
+.theme-button img,
+.lang-button img,
+.snow-button img {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    pointer-events: auto;
 }
 
 :root[data-theme="pink"] {
@@ -2684,4 +2686,63 @@ body {
 
 .birthday-block h3 {
     text-shadow: 0 0 10px rgba(var(--timer-color), 0.5);
+}
+
+/* Дополнительная оптимизация таймера для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .birthday-block {
+        padding: 0.75rem;
+        margin: 0.75rem;
+        width: auto;
+    }
+
+    .countdown-display {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .countdown-row {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.15rem;
+        font-size: 0.7rem;
+        width: 100%;
+    }
+
+    .countdown-row span[id] {
+        font-size: 1rem;
+        min-width: 20px;
+        margin: 0;
+    }
+
+    .time-label {
+        font-size: 0.6rem;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .separator {
+        font-size: 0.8rem;
+        margin: 0;
+        padding: 0 0.1rem;
+    }
+}
+
+/* Дополнительная оптимизация для очень маленьких экранов */
+@media screen and (max-width: 360px) {
+    .countdown-row span[id] {
+        font-size: 0.9rem;
+        min-width: 16px;
+    }
+
+    .time-label {
+        font-size: 0.5rem;
+    }
+
+    .separator {
+        font-size: 0.7rem;
+        padding: 0 0.05rem;
+    }
 }
