@@ -969,37 +969,26 @@ body {
 
 /* Обновленные стили для ленты донатеров */
 .donors-showcase {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: var(--block-bg);
-    border-radius: 20px;
-    border: 1px solid var(--primary-color);
-    perspective: 1000px;
+    margin-top: 2rem;
     width: 100%;
-    box-sizing: border-box;
-    user-select: none;
-    -webkit-user-select: none;
-}
-
-.donors-title {
-    text-align: center;
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
 }
 
 .donors-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    width: 100%;
+    grid-template-columns: repeat(3, 1fr); /* Фиксированные 3 колонки для ПК */
+    gap: 2rem;
+    padding: 1rem;
 }
 
 .donor-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--block-bg);
     border-radius: 15px;
-    padding: 1rem;
-    text-align: center;
+    padding: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
     border: 1px solid var(--primary-color);
     transition: all 0.3s ease;
 }
@@ -1014,62 +1003,70 @@ body {
     height: 80px;
     border-radius: 50%;
     border: 2px solid var(--primary-color);
-    margin-bottom: 1rem;
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-touch-callout: none;
-    pointer-events: none;
+    object-fit: cover;
 }
 
 .donor-name {
-    color: var(--text-color);
     font-size: 1.1rem;
-    margin: 0.5rem 0;
+    color: var(--text-color);
+    text-align: center;
 }
 
 .donor-amount {
     color: var(--primary-color);
     font-weight: bold;
+    font-size: 1.2rem;
 }
 
+/* Медиа-запросы для адаптивности */
 @media screen and (max-width: 768px) {
-    .donors-showcase {
-        padding: 1rem;
-        margin-top: 2rem;
-    }
-    
     .donors-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr); /* Сохраняем 3 колонки */
+        gap: 0.75rem;
+        padding: 0.75rem;
+    }
+
+    .donor-card {
+        padding: 0.75rem;
     }
 
     .donor-avatar {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .donor-name {
+        font-size: 0.8rem;
+    }
+
+    .donor-amount {
+        font-size: 0.9rem;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .art-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 1rem;
-    }
-    
-    .art-group {
+/* Для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    .donors-grid {
+        grid-template-columns: repeat(3, 1fr);
         gap: 0.5rem;
         padding: 0.5rem;
     }
-}
 
-@media screen and (max-width: 480px) {
-    .art-grid {
-        padding: 0.75rem;
+    .donor-card {
+        padding: 0.5rem;
     }
-    
-    .art-group {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
+
+    .donor-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .donor-name {
+        font-size: 0.7rem;
+    }
+
+    .donor-amount {
+        font-size: 0.8rem;
     }
 }
 
@@ -2558,144 +2555,74 @@ body {
     }
 }
 
-/* Стили для ленты донатеров */
-.donors-ribbon {
-    width: 100%;
-    overflow: hidden;
-    padding: 1rem 0;
-    background: var(--block-bg);
-    border-top: 1px solid var(--primary-color);
-    border-bottom: 1px solid var(--primary-color);
+/* Стили для прогресс-бара */
+.funding-container {
     margin-top: 2rem;
-}
-
-.donors-container {
-    display: flex;
-    animation: scrollDonors 20s linear infinite;
-}
-
-.donor-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 1rem;
-    flex-shrink: 0;
-}
-
-.donor-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid var(--primary-color);
-    transition: transform 0.3s ease;
-}
-
-.donor-amount {
-    margin-top: 0.5rem;
-    font-size: 0.8rem;
-    color: var(--primary-color);
-}
-
-@keyframes scrollDonors {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-/* Медиа-запросы для ленты донатеров */
-@media screen and (max-width: 768px) {
-    .donors-ribbon {
-        padding: 0.5rem 0;
-    }
-    
-    .donor-avatar {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-/* Обновленные стили для ленты донатеров */
-.donors-showcase {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: var(--block-bg);
-    border-radius: 20px;
-    border: 1px solid var(--primary-color);
-    perspective: 1000px;
-    width: 100%;
-    box-sizing: border-box;
-    user-select: none;
-    -webkit-user-select: none;
-}
-
-.donors-title {
-    text-align: center;
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-}
-
-.donors-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    width: 100%;
-}
-
-.donor-card {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 15px;
     padding: 1rem;
-    text-align: center;
+    background: var(--block-bg);
+    border-radius: 15px;
     border: 1px solid var(--primary-color);
-    transition: all 0.3s ease;
 }
 
-.donor-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(var(--primary-color), 0.2);
+.progress-bar {
+    width: 100%;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
 }
 
-.donor-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid var(--primary-color);
-    margin-bottom: 1rem;
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-touch-callout: none;
-    pointer-events: none;
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-radius: 25px;
+    transition: width 0.3s ease;
+    position: relative;
 }
 
-.donor-name {
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: var(--text-color);
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
+    font-weight: bold;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
-.donor-amount {
-    color: var(--primary-color);
+.donate-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--primary-color);
+    color: var(--background-color);
+    text-decoration: none;
+    border-radius: 25px;
     font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.donate-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(var(--primary-color), 0.3);
 }
 
 @media screen and (max-width: 768px) {
-    .donors-showcase {
-        padding: 1rem;
-        margin-top: 2rem;
-    }
-    
-    .donors-grid {
-        grid-template-columns: 1fr;
+    .funding-container {
+        margin-top: 1rem;
+        padding: 0.8rem;
     }
 
-    .donor-avatar {
-        width: 60px;
-        height: 60px;
+    .progress-bar {
+        height: 20px;
+    }
+
+    .donate-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -3173,5 +3100,336 @@ body {
     
     .page-transition {
         display: none !important;
+    }
+}
+
+/* Отключаем анимации для мобильных устройств */
+@media screen and (max-width: 768px) {
+    /* Отключаем все трансформации и анимации */
+    .nav-item:hover .nav-oval,
+    .content-block:hover,
+    .social-link:hover,
+    .theme-button:hover,
+    .lang-button:hover,
+    .price-item:hover,
+    .art-item:hover,
+    .donor-card:hover,
+    .project-image-wrapper,
+    .tab-button:hover {
+        transform: none !important;
+        animation: none !important;
+    }
+
+    /* Отключаем фоновые анимации */
+    .background-gradient,
+    .oval-container::before,
+    .nav-item a[href="drearth.html"] .nav-oval::before,
+    .nav-item a[href="drearth.html"] .nav-oval::after {
+        animation: none !important;
+        display: none;
+    }
+
+    /* Упрощаем эффекты наведения */
+    .social-link:hover,
+    .theme-button:hover,
+    .lang-button:hover {
+        opacity: 1;
+    }
+
+    /* Отключаем 3D эффекты */
+    .project-image-wrapper,
+    .donors-showcase {
+        transform: none !important;
+        perspective: none !important;
+    }
+}
+
+/* Основные адаптивные стили */
+@media screen and (max-width: 768px) {
+    /* Общие стили контейнеров */
+    .grid-container {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .content-block {
+        padding: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    /* Навигация */
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .nav-oval {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Контент */
+    .content {
+        padding: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    /* Карточки и сетки */
+    .art-grid,
+    .portfolio-grid,
+    .donors-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    /* OC блок */
+    .oc-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .oc-description {
+        padding: 1rem;
+    }
+
+    /* Кнопки и переключатели */
+    .theme-switcher,
+    .language-switcher {
+        bottom: 10px;
+    }
+
+    .theme-button,
+    .lang-button {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* Убираем декоративные элементы */
+    .pinkie-decoration,
+    .rainbow-dash {
+        display: none;
+    }
+
+    /* Оптимизация для прайс-листа */
+    .price-list {
+        padding: 1rem;
+    }
+
+    .price-item {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Дополнительные стили для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    /* Уменьшаем размеры шрифтов */
+    body {
+        font-size: 14px;
+    }
+
+    /* Дополнительная оптимизация сеток */
+    .art-grid,
+    .portfolio-grid {
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    /* Уменьшаем отступы */
+    .content-block {
+        padding: 0.75rem;
+    }
+
+    /* Оптимизация кнопок */
+    .theme-button,
+    .lang-button {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Оптимизация производительности */
+@media screen and (max-width: 768px) {
+    /* Используем облегченные эффекты */
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Отключаем сложные эффекты теней */
+    .content-block,
+    .nav-oval,
+    .theme-button,
+    .lang-button {
+        box-shadow: none;
+    }
+
+    /* Используем более легкие фоны */
+    .background-gradient,
+    .page-container::after {
+        opacity: 0.5;
+    }
+
+    /* Оптимизация изображений */
+    img {
+        will-change: transform;
+    }
+}
+
+/* Обновленные стили для доноров на мобильных устройствах */
+@media screen and (max-width: 768px) {
+    .donors-showcase {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+
+    .donors-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0.5rem;
+    }
+
+    .donor-card {
+        padding: 0.75rem;
+    }
+
+    .donor-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .donor-name {
+        font-size: 0.9rem;
+    }
+
+    .donor-amount {
+        font-size: 0.8rem;
+    }
+
+    /* Исправляем отображение drearth-showcase */
+    .drearth-showcase {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 1rem;
+    }
+
+    .drearth-image-container {
+        transform: none !important;
+    }
+
+    .drearth-info {
+        padding: 1rem;
+    }
+
+    .genre-tags {
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+
+    .genre-tag {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.7rem;
+    }
+}
+
+/* Адаптивные стили для страницы Art */
+@media screen and (max-width: 768px) {
+    /* Прайс-лист */
+    .price-list {
+        margin: 0.5rem 0;
+    }
+
+    .price-item {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    /* Портфолио */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .art-item {
+        aspect-ratio: 1;
+        width: 100%;
+    }
+
+    .art-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Отзывы */
+    .reviews-container {
+        padding: 0;
+    }
+
+    .review-card {
+        padding: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    .review-header {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .reviewer-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .reviewer-name {
+        font-size: 1rem;
+    }
+
+    .rating-with-stars {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .overall-rating {
+        font-size: 1.2rem;
+    }
+
+    .stars-container {
+        gap: 0.2rem;
+    }
+
+    .star {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Контакты */
+    .social-links {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .social-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Дополнительные стили для очень маленьких экранов */
+@media screen and (max-width: 360px) {
+    .price-item {
+        font-size: 0.8rem;
+    }
+
+    .reviewer-name {
+        font-size: 0.9rem;
+    }
+
+    .star {
+        width: 12px;
+        height: 12px;
     }
 }
