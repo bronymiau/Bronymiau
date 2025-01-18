@@ -88,6 +88,8 @@ body {
     min-height: 100vh;
     overflow-y: auto;
     cursor: url('Assets/Cursor.png'), auto;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .page-container {
@@ -228,11 +230,79 @@ body {
 }
 
 .grid-container {
-    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-top: 1rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.reviews-block {
+    grid-column: 1 / -1; /* Занимает всю ширину */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.rating-with-stars {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: -10px; /* Подвинем звезды еще выше */
+}
+
+.stars-container {
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    width: 15px; /* Уменьшим размер */
+    height: 15px;
+}
+
+.star img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Стили для разных тем */
+[data-theme='pink'] .star.filled img,
+[data-theme='pink'] .star.partial img {
+    filter: invert(73%) sepia(81%) saturate(4051%) hue-rotate(297deg) brightness(100%) contrast(97%);
+}
+
+[data-theme='blue'] .star.filled img,
+[data-theme='blue'] .star.partial img {
+    filter: invert(54%) sepia(95%) saturate(1680%) hue-rotate(165deg) brightness(99%) contrast(96%);
+}
+
+[data-theme='purple'] .star.filled img,
+[data-theme='purple'] .star.partial img {
+    filter: invert(35%) sepia(21%) saturate(2364%) hue-rotate(235deg) brightness(96%) contrast(92%);
+}
+
+[data-theme='yellow'] .star.filled img,
+[data-theme='yellow'] .star.partial img {
+    filter: invert(96%) sepia(36%) saturate(7500%) hue-rotate(359deg) brightness(102%) contrast(94%);
+}
+
+.star.partial img {
+    opacity: 0.7;
+}
+
+.star:not(.filled):not(.partial) img {
+    opacity: 0.05; 
+}
+
+.star.empty svg path {
+    fill: rgba(255, 255, 255, 0.2);
 }
 
 .oval-container {
@@ -244,7 +314,6 @@ body {
     position: relative;
     backdrop-filter: blur(10px);
     border: 1px solid transparent;
-    background-clip: padding-box;
 }
 
 .oval-container::before {
@@ -505,17 +574,48 @@ body {
 
 /* Стили для прайс-листа */
 .price-list {
-    display: grid;
-    gap: 1rem;
+    background: var(--block-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(var(--primary-color), 0.1);
+}
+
+.price-list h3 {
+    color: var(--primary-color);
+    margin: 2rem 0 1rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.8rem;
+}
+
+.price-list h3:first-child {
+    margin-top: 0;
 }
 
 .price-item {
-    background: var(--block-bg);
-    padding: 1rem;
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    margin: 0.8rem 0;
+    padding: 1.2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid transparent;
+}
+
+.price-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(5px);
+    border-color: var(--primary-color);
+}
+
+.price-item span:last-child {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 
 /* Стили для блока навыков */
@@ -1478,6 +1578,99 @@ body {
     }
 }
 
+/* Адаптивные стили для мобильных устройств */
+@media screen and (max-width: 768px) {
+    /* Уменьшение количества снега */
+    .snowflake {
+        font-size: 12px;
+        opacity: 0.4;
+    }
+    
+    /* Убираем радужные переходы */
+    .nav-item[href="drearth.html"]::before,
+    .nav-item[href="drearth.html"]:hover::before,
+    .nav-item[href="drearth.html"]:hover::after {
+        display: none;
+    }
+    
+    /* Фиксация страницы по центру */
+    .page-container {
+        max-width: 100%;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+    
+    /* Убираем горизонтальный скроллбар */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Адаптация арт-страницы */
+    .art-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .art-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Стилизация прайс-листа программирования */
+    .price-list {
+        background: var(--block-bg);
+        border-radius: 20px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .price-list h3 {
+        color: var(--primary-color);
+        margin: 1.5rem 0 1rem;
+        font-size: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 0.5rem;
+    }
+    
+    .price-item {
+        background: rgba(255, 255, 255, 0.03);
+        margin: 0.5rem 0;
+        padding: 1rem;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .price-item:hover {
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateX(5px);
+    }
+    
+    .price-item span:last-child {
+        color: var(--primary-color);
+        font-weight: bold;
+    }
+}
+
+/* Дополнительные стили для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    .snowflake {
+        font-size: 10px;
+        opacity: 0.3;
+    }
+    
+    .price-item {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .theme-switcher {
         bottom: 10px;
@@ -1630,7 +1823,7 @@ body {
     }
 
     .snow-button {
-        bottom: 8px;
+        bottom: 8px; /* Немного подняли для выравнивания */
         left: 250px; /* Увеличили отступ в три раза */
         width: 32px; /* Увеличили размер */
         height: 32px;
@@ -2565,7 +2758,7 @@ body {
     100% { opacity: 0; transform: scale(0); }
 }
 
-/* Обновите стили для birthday-block */
+/* Обновлено стили для birthday-block */
 .birthday-block {
     position: relative;
     background: rgba(0, 0, 0, 0.3);
@@ -2757,7 +2950,7 @@ body {
     gap: 10px;
     transition: none; /* Отключаем все переходы */
     will-change: transform; /* Оптимизация производительности */
-    backface-visibility: hidden; /* Предотвращение мерцания */
+    backface-visibility: hidden; 
     -webkit-backface-visibility: hidden;
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
@@ -2771,7 +2964,7 @@ body {
     left: 180px;
 }
 
-/* Предотвращаем исчезновение на мобильных устройствах */
+
 @media screen and (max-width: 768px) {
     .theme-switcher,
     .language-switcher {
@@ -2787,7 +2980,198 @@ body {
     }
 }
 
-/* Отключаем все анимации при загрузке страницы */
+
 .preload * {
     transition: none !important;
+}
+
+/* Стили для блока отзывов */
+.reviews-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.review-card {
+    background: var(--block-bg);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--primary-color);
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.reviewer-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.reviewer-info {
+    flex-grow: 1;
+}
+
+.reviewer-name {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.review-ratings {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.rating-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.overall-rating {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.review-text {
+    font-style: italic;
+    opacity: 0.9;
+    line-height: 1.5;
+    margin-top: 1rem;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media screen and (max-width: 768px) {
+    /* Уменьшение количества снега */
+    .snowflake {
+        font-size: 12px;
+        opacity: 0.4;
+    }
+    
+    /* Убираем радужные переходы */
+    .nav-item[href="drearth.html"]::before,
+    .nav-item[href="drearth.html"]:hover::before,
+    .nav-item[href="drearth.html"]:hover::after {
+        display: none;
+    }
+    
+    /* Фиксация страницы по центру */
+    .page-container {
+        max-width: 100%;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+    
+    /* Убираем горизонтальный скроллбар */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Адаптация арт-страницы */
+    .art-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .art-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Стилизация прайс-листа программирования */
+    .price-list {
+        background: var(--block-bg);
+        border-radius: 20px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .price-list h3 {
+        color: var(--primary-color);
+        margin: 1.5rem 0 1rem;
+        font-size: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 0.5rem;
+    }
+    
+    .price-item {
+        background: rgba(255, 255, 255, 0.03);
+        margin: 0.5rem 0;
+        padding: 1rem;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .price-item:hover {
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateX(5px);
+    }
+    
+    .price-item span:last-child {
+        color: var(--primary-color);
+        font-weight: bold;
+    }
+}
+
+/* Дополнительные стили для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    .snowflake {
+        font-size: 10px;
+        opacity: 0.3;
+    }
+    
+    .price-item {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media screen and (max-width: 768px) {
+    /* Убираем радужные переходы между страницами */
+    .nav-item::before,
+    .nav-item:hover::before,
+    .nav-item::after,
+    .nav-item:hover::after {
+        display: none;
+    }
+    
+    /* Возвращаем эффекты для Drearth */
+    .nav-item a[href="drearth.html"] .nav-oval::before,
+    .nav-item a[href="drearth.html"] .nav-oval::after {
+        display: block !important;
+    }
+
+
+}
+
+/* Обновляем стили для анимации перехода */
+@media screen and (max-width: 768px) {
+    .rainbow-dash,
+    .rainbow-trail {
+        display: none !important;
+    }
+    
+    .page-transition {
+        display: none !important;
+    }
 }

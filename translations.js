@@ -105,7 +105,23 @@ const translations = {
         hours: "hours",
         minutes: "minutes",
         seconds: "seconds",
-        birthdayWish: "HAPPY BIRTHDAY TO ME!"
+        birthdayWish: "HAPPY BIRTHDAY TO ME!",
+        reviews: "Reviews",
+        quality: "Quality",
+        price: "Price",
+        timeframe: "Timeframe",
+        overallRating: "Overall rating",
+        dinTroubleMakerReview: "Well, there's not much to say, I personally like it, but I think the face should have looked a bit different",
+        discordBots: "Discord Bots",
+        simpleUtilities: "Simple utilities without DB",
+        moderation: "Moderation",
+        economy: "Economy",
+        events: "Events",
+        other: "Other",
+        frontendWebsites: "Frontend Websites",
+        simple: "Simple",
+        complex: "Complex",
+        upTo: "Up to"
     },
     ru: {
         main: "Главная",
@@ -213,6 +229,22 @@ const translations = {
         hours: "часов",
         minutes: "минут",
         seconds: "секунд",
-        birthdayWish: "С ДНЁМ РОЖДЕНИЯ МЕНЯ!"
+        birthdayWish: "С ДНЁМ РОЖДЕНИЯ МЕНЯ!",
+        reviews: "Отзывы",
+        quality: "Качество",
+        price: "Цена",
+        timeframe: "Срок",
+        overallRating: "Общая оценка",
+        dinTroubleMakerReview: "Ну, особо и сказать нечего, мне лично нравится, но как мне кажется морда немного по-другому должна была выглядеть",
+        discordBots: "Дискорд боты",
+        simpleUtilities: "Простые утилиты без БД",
+        moderation: "Модерация",
+        economy: "Экономика",
+        events: "Ивенты",
+        other: "Прочее",
+        frontendWebsites: "Фронтенд сайты",
+        simple: "Простой",
+        complex: "Сложнее",
+        upTo: "До"
     }
 }; 
