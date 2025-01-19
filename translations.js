@@ -122,7 +122,7 @@ const translations = {
         simple: "Simple",
         complex: "Complex",
         upTo: "Up to",
-        warNotice: "I do not support military actions related to Ukraine and Russia, and because of this, I would like to express respect to developer Ihor Kobal, also known as PekpyT, of the game Delirium. He did not deserve such treatment, and I hope you will be okay. I salute you."
+        warNotice: "I do not support military actions related to Ukraine and Russia, and because of this, I would like to express respect to developer Ihor Koval, also known as PekpyT, of the game Delirium. He did not deserve such treatment, and I hope you will be okay. I salute you."
     },
     ru: {
         main: "Главная",
@@ -247,6 +247,6 @@ const translations = {
         simple: "Простой",
         complex: "Сложнее",
         upTo: "До",
-        warNotice: "Я не поддерживаю военные действия связанные на Украине с Россией и из-за этого я хотела бы выдать уважение разработчику Ihor Kobal или же PekpyT такой игры как Delirium, он не заслужил такого отношения к себе, и я надеюсь что с тобой будет все хорошо. Отдаю честь"
+        warNotice: "Я не поддерживаю военные действия связанные на Украине с Россией и из-за этого я хотела бы выдать уважение разработчику Ihor Koval или же PekpyT такой игры как Delirium, он не заслужил такого отношения к себе, и я надеюсь что с тобой будет все хорошо. Отдаю честь"
     }
 }; 
