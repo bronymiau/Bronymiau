@@ -5,7 +5,9 @@ const db = require('../database/db');
 
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
-const REDIRECT_URI = 'https://bronymiau.com/api/auth/discord/callback';
+const REDIRECT_URI = process.env.NODE_ENV === 'production'
+    ? 'https://bronymiau.com/api/auth/discord/callback'
+    : 'https://bronymiau.com/api/auth/discord/callback';
 
 async function getDiscordToken(code) {
     const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
@@ -48,9 +50,10 @@ async function getDiscordUser(accessToken) {
 router.get('/discord', (req, res) => {
     const params = new URLSearchParams({
         client_id: CLIENT_ID,
-        redirect_uri: REDIRECT_URI,
+        redirect_uri: 'https://bronymiau.com/api/auth/discord/callback',
         response_type: 'code',
         scope: 'identify',
+        prompt: 'consent'
     });
 
     res.redirect(`https://discord.com/api/oauth2/authorize?${params}`);
