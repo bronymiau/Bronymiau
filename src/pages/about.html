@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bronymiau - あなたはあなたの人生について悲しいですか？</title>
+    <link rel="icon" type="image/png" href="assets/images/icons/icon.png">
+    <link rel="stylesheet" href="/styles/variables.css">
+    <link rel="stylesheet" href="/styles/components/preloader.css">
+    <link rel="stylesheet" href="/styles/components/intro.css">
+    <link rel="stylesheet" href="/styles/components/footer.css">
+    <link rel="stylesheet" href="/styles/components/notifications.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/pages/about.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <meta property="og:title" content="Don't click on me">
+        <meta property="og:description" content="Kinda a really cool person who succeeds in everything, even in your house">
+        <meta property="og:image" content="https://bronymiau.com/assets/images/general/preview.png">
+        <meta property="og:url" content="https://bronymiau.com">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@Bronymiau">
+        <meta name="twitter:title" content="Don't click on me">
+        <meta name="twitter:description" content="Kinda a really cool person who succeeds in everything, even in your house">
+        <meta name="twitter:image" content="https://bronymiau.com/assets/images/general/preview.png">
+        <meta name="theme-color" content="#8b5cf6">
+</head>
+<body>
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    <div class="page-transition"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="assets/images/icons/logo.png" alt="Bronymiau Logo">
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link" data-i18n="nav.main">Main</a>
+                <a href="/about" class="nav-link active" data-i18n="nav.about">About me</a>
+                <a href="/art" class="nav-link" data-i18n="nav.artwork">Artwork</a>
+                <a href="/programming" class="nav-link" data-i18n="nav.coding">Coding</a>
+                <div class="ych-badge">
+                    <a href="/art" class="nav-link ych-link" data-i18n="nav.ych">
+                        YCH
+                        <span class="ych-price">30$</span>
+                        <div class="ych-preview">
+                            <img src="assets/images/general/ych2.png" alt="Current YCH" loading="lazy">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="about-content">
+            <div class="hero-section">
+                <div class="identity-container">
+                    <h1 data-i18n="about.title">About Me</h1>
+                    <p class="subtitle-joke" data-i18n="about.subtitle">is anyone interested in this? lol</p>
+                    <div class="identity-tags">
+                        <div class="tag"><i class="fas fa-user"></i> <span data-i18n="badges.pronouns">she/her</span></div>
+                        <div class="tag"><img src="/assets/images/icons/Pansexual.png" alt="Pride"> <span data-i18n="badges.pansexual">Pansexual</span></div>
+                        <div class="tag"><img src="/assets/images/icons/Brony.png" alt="Brony"> <span data-i18n="badges.brony">Brony</span></div>
+                        <div class="tag"><i class="far fa-clock"></i> <span id="warsawTime" data-i18n="badges.time">12:40 Warsaw</span></div>
+                    </div>
+                </div>
+                <div class="pony-image-container">
+                    <div class="magic-circle"></div>
+                    <div class="sparkles"></div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-header">
+                            <i class="fas fa-star"></i>
+                            <h3>Background</h3>
+                        </div>
+                        <p data-i18n="about.description.background">
+                            Born on February 9, 2006, in Ukraine, I've cultivated a deep passion for digital art and creative technology. My journey has been profoundly influenced by the magical world of My Little Pony, which continues to inspire my artistic vision and professional growth.
+                        </p>
+                    </div>
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-header">
+                            <i class="fas fa-heart"></i>
+                            <h3>Community</h3>
+                        </div>
+                        <p data-i18n="about.description.community">
+                            On October 29, 2023, I proudly joined the Brony community, embracing its values of creativity, friendship, and self-expression. As a digital artist and developer who identifies as she/her, I strive to create works that combine technical precision with artistic beauty.
+                        </p>
+                    </div>
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Approach</h3>
+                        </div>
+                        <p data-i18n="about.description.approach">
+                            My approach to both art and programming is guided by a commitment to excellence and attention to detail. Through my work, I aim to bridge the gap between technology and creativity, creating experiences that inspire connection and positive change in our digital world.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="oc-section">
+            <h2>
+                <i class="fas fa-moon"></i>
+                <span data-i18n="about.oc.name">Batpony - Shau</span>
+            </h2>
+            <div class="oc-content">
+                <div class="oc-image-container">
+                    <img src="/assets/images/shau/main.png" alt="Shau" class="oc-image">
+                    <div class="magic-particles"></div>
+                </div>
+                <div class="oc-description">
+                    <div class="oc-bio">
+                        <h4 data-i18n="about.oc.bio.title">Bio</h4>
+                        <p data-i18n="about.oc.bio.description"></p>
+                        <div class="oc-traits">
+                            <div class="trait-group">
+                                <h5><i class="fas fa-star"></i> <span data-i18n="about.oc.bio.strengths.title">Strengths</span></h5>
+                                <ul>
+                                    <li data-i18n="about.oc.bio.strengths.list.0"></li>
+                                    <li data-i18n="about.oc.bio.strengths.list.1"></li>
+                                    <li data-i18n="about.oc.bio.strengths.list.2"></li>
+                                </ul>
+                            </div>
+                            <div class="trait-group">
+                                <h5><i class="fas fa-exclamation-triangle"></i> <span data-i18n="about.oc.bio.weaknesses.title">Weaknesses</span></h5>
+                                <ul>
+                                    <li data-i18n="about.oc.bio.weaknesses.list.0"></li>
+                                    <li data-i18n="about.oc.bio.weaknesses.list.1"></li>
+                                    <li data-i18n="about.oc.bio.weaknesses.list.2"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="oc-lore">
+                        <h4 data-i18n="about.oc.story.title">Story</h4>
+                        <p data-i18n="about.oc.story.paragraphs.0"></p>
+                        <p data-i18n="about.oc.story.paragraphs.1"></p>
+                        <p data-i18n="about.oc.story.paragraphs.2"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/privacy" class="footer-link">Privacy Policy</a>
+                <a href="/art" class="footer-link">Price</a>
+                <a href="/socials" class="footer-link">Socials</a>
+                <a href="/veroid" class="footer-link">Veroid</a>
+            </div>
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/bronymiau" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/Bronymiau" target="_blank" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://discord.gg/zRasUhdPvb" target="_blank" class="social-link">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+                <div class="language-selector">
+                    <button class="language-btn">
+                        <img src="/assets/images/icons/en.png" alt="EN">
+                    </button>
+                    <div class="language-dropdown">
+                        <div class="language-option" data-lang="en">
+                            <img src="/assets/images/icons/en.png" alt="EN">
+                        </div>
+                        <div class="language-option" data-lang="ru">
+                            <img src="/assets/images/icons/ru.png" alt="RU">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/scripts/components/preloader.js"></script>
+    <script src="/scripts/main.js" type="module"></script>
+    <script type="module" src="/scripts/language.js"></script>
+    <script src="/scripts/components/footer.js"></script>
+    <script src="/scripts/components/intro.js"></script>
+    <script src="/scripts/pages/about.js"></script>
+    <script src="/scripts/components/notifications.js"></script>
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>

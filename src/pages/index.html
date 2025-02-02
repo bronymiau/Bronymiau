@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bronymiau - who are you?</title>
+    <link rel="icon" type="image/png" href="assets/images/icons/icon.png">
+    <link rel="stylesheet" href="/styles/variables.css">
+    <link rel="stylesheet" href="/styles/components/preloader.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/components/footer.css">
+    <link rel="stylesheet" href="/styles/components/intro.css">
+    <link rel="stylesheet" href="/styles/components/notifications.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Don't click on me">
+    <meta property="og:description" content="Kinda a really cool person who succeeds in everything, even in your house">
+    <meta property="og:image" content="https://bronymiau.com/assets/images/general/preview.png">
+    <meta property="og:url" content="https://bronymiau.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Bronymiau">
+    <meta name="twitter:title" content="Don't click on me">
+    <meta name="twitter:description" content="Kinda a really cool person who succeeds in everything, even in your house">
+    <meta name="twitter:image" content="https://bronymiau.com/assets/images/general/preview.png">
+    <meta name="theme-color" content="#8b5cf6">
+</head>
+<body>
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    <div class="page-transition"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="assets/images/icons/logo.png" alt="Bronymiau Logo">
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link active" data-i18n="nav.main">Main</a>
+                <a href="/about" class="nav-link" data-i18n="nav.about">About me</a>
+                <a href="/art" class="nav-link" data-i18n="nav.artwork">Artwork</a>
+                <a href="/programming" class="nav-link" data-i18n="nav.coding">Coding</a>
+                <div class="ych-badge">
+                    <a href="/art" class="nav-link ych-link" data-i18n="nav.ych">
+                        YCH
+                        <span class="ych-price">30$</span>
+                        <div class="ych-preview">
+                            <img src="assets/images/general/ych2.png" alt="Current YCH" loading="lazy">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="glitch-text" data-i18n="hero.title">Bronymiau</h1>
+                    <p class="subtitle">
+                        <span class="subtitle-text" data-i18n="hero.subtitle.text">Sooner or later you had to get....</span>
+                        <span class="subtitle-highlight" data-i18n="hero.subtitle.highlight">here</span>
+                        <span class="subtitle-exclamation">!</span>
+                    </p>
+                    <p class="description" data-i18n="hero.description">Kinda a really cool person who succeeds in everything, even in your house</p>
+                    <div class="hero-buttons">
+                        <a href="/reviews" class="primary-button" data-i18n="hero.buttons.reviews">Reviews</a>
+                        <a href="/try-luck" class="secondary-button" data-i18n="hero.buttons.tryLuck">Try luck</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="glow-effect"></div>
+                    <img src="assets/images/ponies/pinkie.png" alt="Pinkie" class="floating">
+                </div>
+            </div>
+        </section>
+        <section class="category-select-section">
+            <div class="grid-container"></div>
+            <h2 class="section-title" data-i18n="categories.title">Choose Direction</h2>
+            <div class="categories-container">
+                <div class="category-choice art" data-category="art">
+                    <div class="category-frame">
+                        <div class="category-content">
+                            <img src="assets/images/icons/pallete.png" alt="Art" class="category-icon">
+                            <h3 class="category-title" data-i18n="categories.art.title">Artist</h3>
+                            <p class="category-description" data-i18n="categories.art.description">Nsfw arts & Sfw Art</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-choice programming" data-category="programming">
+                    <div class="category-frame">
+                        <div class="category-content">
+                            <img src="/assets/images/icons/code.png" alt="Programming" class="category-icon">
+                            <h3 class="category-title" data-i18n="categories.programming.title">Programming</h3>
+                            <p class="category-description" data-i18n="categories.programming.description">Web Development & Applications</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="art-projects" class="projects-section">
+            <div class="container">
+                <div class="artwork-gallery">
+                    <h2 class="section-title" data-i18n="gallery.title">Creativity</h2>
+                    <div class="artwork-gallery-decoration"></div>
+                    <div class="age-warning">
+                        <i class="fas fa-exclamation-triangle warning-icon"></i>
+                        <div class="warning-text" data-i18n="gallery.warning.text">
+                            This gallery contains <strong>adult content</strong>. 
+                            By proceeding, you confirm that you are of legal age in your jurisdiction.
+                        </div>
+                    </div>
+                    <section class="gallery-section">
+                        <div class="gallery-container">
+                            <button class="gallery-nav prev-btn">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="gallery-track-wrapper">
+                                <div class="gallery-track">
+                                    <div class="gallery-item">
+                                        <img src="assets/images/general/art1.png" alt="Art 1" loading="lazy">
+                                        <div class="project-overlay"></div>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="assets/images/general/art2.png" alt="Art 2" loading="lazy">
+                                        <div class="project-overlay"></div>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="assets/images/general/art3.png" alt="Art 3" loading="lazy">
+                                        <div class="project-overlay"></div>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="assets/images/general/art4.png" alt="Art 4" loading="lazy">
+                                        <div class="project-overlay"></div>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="assets/images/general/art5.png" alt="Art 5" loading="lazy">
+                                        <div class="project-overlay"></div>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="assets/images/general/art6.png" alt="Art 6" loading="lazy">
+                                        <div class="project-overlay"></div>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="assets/images/general/art7.png" alt="Art 7" loading="lazy">
+                                        <div class="project-overlay"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="gallery-nav next-btn">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </section>
+                    <a href="/art" class="more-art-button" data-i18n="gallery.button">
+                        Pricelist & Comissions
+                    </a>
+                    <div class="gallery-caption" data-i18n="gallery.caption">
+                        Do you really like pony butts that much? You're quite something~
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="coding-section">
+            <div class="coding-hero">
+                <div class="coding-content">
+                    <div class="coding-text" data-fade="left">
+                        <h2 class="glitch-text" data-i18n="projects.title">Projects</h2>
+                        <p class="coding-description" data-i18n="projects.description">
+                            Aspiring developer passionate about creating innovative projects. 
+                            Working with various programming languages, constantly learning something new.
+                        </p>
+                        <div class="programming-languages">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+                                 alt="JavaScript" 
+                                 class="language-icon"
+                                 data-fade="up"
+                                 data-delay="0">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" 
+                                 alt="Node.js" 
+                                 class="language-icon"
+                                 data-fade="up"
+                                 data-delay="2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" 
+                                 alt="TypeScript" 
+                                 class="language-icon"
+                                 data-fade="up"
+                                 data-delay="4">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" 
+                                 alt="React" 
+                                 class="language-icon"
+                                 data-fade="up"
+                                 data-delay="6">
+                        </div>
+                    </div>
+                    <div class="coding-image" data-fade="right">
+                        <div class="lyra-floating">
+                            <img src="assets/images/ponies/lyra.png" alt="Lyra" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-container">
+                <div class="project-card" data-fade="up">
+                    <div class="project-content">
+                        <h3 data-i18n="projects.equesta.title">Equesta</h3>
+                        <p data-i18n="projects.equesta.description">A versatile converter for working with media files. Convert images, videos, and audio into various formats with ease.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Electron</span>
+                        </div>
+                        <button class="learn-more-btn" data-i18n="buttons.learnMore">Learn More</button>
+                    </div>
+                </div>
+                <div class="project-card featured" data-fade="up">
+                    <div class="project-content">
+                        <div class="featured-badge" data-i18n="projects.featured">Featured</div>
+                        <h3 data-i18n="projects.drearth.title">Drearth</h3>
+                        <p data-i18n="projects.drearth.description">Two ponies are the best of friends, inseparable and always supporting each other no matter the circumstances. As time passes, the older pony begins to struggle with severe mental issues, leading her to experience vivid hallucinations. Her unstable magic only exacerbates the situation, causing a series of catastrophic events. Together, they embark on a journey into her subconscious realm, confronting the chaos within and seeking understanding and resolution.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">GML</span>
+                            <span class="tech-tag">GameMaker</span>
+                        </div>
+                        <button class="learn-more-btn" data-i18n="buttons.learnMore">Learn More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-projects-container">
+                <a href="/programming" class="view-all-projects" data-i18n="buttons.viewAll">Посмотреть все проекты</a>
+            </div>
+        </section>
+        <section class="about-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <div class="about-text" data-fade="left">
+                        <div class="title-container">
+                            <h2 class="glitch-text" data-i18n="about.title">About Me</h2>
+                            <p class="subtitle-joke" data-i18n="about.subtitle">is anyone interested in this? lol</p>
+                        </div>
+                        <div class="identity-badges">
+                            <div class="badge">
+                                <span class="pronouns" data-i18n="badges.pronouns">she/her</span>
+                            </div>
+                            <div class="badge">
+                                <img src="/assets/images/icons/Pansexual.png" alt="Pansexual Pride" class="pride-flag">
+                                <span data-i18n="badges.pansexual">Pansexual</span>
+                            </div>
+                            <div class="badge">
+                                <img src="/assets/images/icons/Brony.png" alt="Brony Pride" class="pride-flag">
+                                <span data-i18n="badges.brony">Brony</span>
+                            </div>
+                            <div class="badge">
+                                <i class="far fa-clock"></i>
+                                <span class="warsaw-time" id="warsawTime" data-i18n="badges.time">Warsaw Time</span>
+                            </div>
+                        </div>
+                        <div class="about-description">
+                            <p data-i18n="about.description.0">Born on February 9, 2006, in Ukraine, I've cultivated a deep passion for digital art and creative technology. My journey has been profoundly influenced by the magical world of My Little Pony, which continues to inspire my artistic vision and professional growth.</p>
+                            <p data-i18n="about.description.1">On October 29, 2023, I proudly joined the Brony community, embracing its values of creativity, friendship, and self-expression. As a digital artist and developer who identifies as she/her, I strive to create works that combine technical precision with artistic beauty.</p>
+                            <p data-i18n="about.description.2">My approach to both art and programming is guided by a commitment to excellence and attention to detail. Through my work, I aim to bridge the gap between technology and creativity, creating experiences that inspire connection and positive change in our digital world.</p>
+                        </div>
+                        <div class="about-stats">
+                            <div class="stat-item" data-fade="up" data-delay="2">
+                                <span class="stat-number" data-i18n="stats.experience.number">1+</span>
+                                <span class="stat-label" data-i18n="stats.experience.label">Years of Experience</span>
+                            </div>
+                            <div class="stat-item" data-fade="up" data-delay="4">
+                                <span class="stat-number" data-i18n="stats.artworks.number">40+</span>
+                                <span class="stat-label" data-i18n="stats.artworks.label">Artworks Created</span>
+                            </div>
+                            <div class="stat-item" data-fade="up" data-delay="6">
+                                <span class="stat-number" data-i18n="stats.commissions.number">20+</span>
+                                <span class="stat-label" data-i18n="stats.commissions.label">Commissions Sold & YCH</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image" data-fade="right">
+                        <div class="twilight-container">
+                            <div class="magic-particles"></div>
+                            <img src="assets/images/ponies/twilight.png" alt="Twilight" class="twilight floating" style="transform: scaleX(-1);">
+                            <div class="magic-circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-section">
+                    <div class="skills-content" data-fade="up">
+                        <h3 class="section-subtitle" data-i18n="skills.title">Skills & Interests</h3>
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <i class="fas fa-paint-brush"></i>
+                                <h4 data-i18n="skills.digitalArt.title">Digital Art</h4>
+                                <p data-i18n="skills.digitalArt.description">Drawing ponies art</p>
+                            </div>
+                            <div class="skill-card">
+                                <i class="fas fa-code"></i>
+                                <h4 data-i18n="skills.programming.title">Programming</h4>
+                                <p data-i18n="skills.programming.description">Learning to create websites frontend/backend, bots, and scripts</p>
+                            </div>
+                            <div class="skill-card">
+                                <i class="fas fa-gamepad"></i>
+                                <h4 data-i18n="skills.gameDev.title">Game Dev</h4>
+                                <p data-i18n="skills.gameDev.description">Exploring game development with GML</p>
+                            </div>
+                            <div class="skill-card">
+                                <i class="fas fa-palette"></i>
+                                <h4 data-i18n="skills.design.title">Design</h4>
+                                <p data-i18n="skills.design.description">Started as a designer from childhood with a unique and cute taste</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="journey-section">
+                    <h3 class="section-subtitle" data-i18n="memory.title">Memory</h3>
+                    <div class="timeline-chart">
+                        <div class="chart-line"></div>
+                        <div class="timeline-events">
+                            <div class="event-point" style="left: 0%">
+                                <div class="point"></div>
+                                <span class="event-year">2022</span>
+                                <div class="event-text" data-i18n="memory.events.firstBot">Впервые попробовала написать Discord бота на Python</div>
+                            </div>
+                            <div class="event-point" style="left: 20%">
+                                <div class="point"></div>
+                                <span class="event-year">2022</span>
+                                <div class="event-text" data-i18n="memory.events.firstArt">I drew the first art starting with the furry theme!</div>
+                            </div>
+                            <div class="event-point" style="left: 50%">
+                                <div class="point"></div>
+                                <span class="event-year">2023</span>
+                                <div class="event-text" data-i18n="memory.events.nsfwArt">Started drawing nsfw & sfw art with Pokemon and furries</div>
+                            </div>
+                            <div class="event-point" style="left: 75%">
+                                <div class="point"></div>
+                                <span class="event-year">2024</span>
+                                <div class="event-text" data-i18n="memory.events.discordBot">I made the first combine discord bot that scored 100 servers</div>
+                            </div>
+                            <div class="event-point" style="left: 95%">
+                                <div class="point"></div>
+                                <span class="event-year">2024</span>
+                                <div class="event-text" data-i18n="memory.events.commission">My first commission sold</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/privacy" class="footer-link">Privacy Policy</a>
+                <a href="/art" class="footer-link">Price</a>
+                <a href="/socials" class="footer-link">Socials</a>
+                <a href="/veroid" class="footer-link">Veroid</a>
+            </div>
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/bronymiau" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/Bronymiau" target="_blank" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://discord.gg/zRasUhdPvb" target="_blank" class="social-link">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+                <div class="language-selector">
+                    <button class="language-btn">
+                        <img src="/assets/images/icons/en.png" alt="EN">
+                    </button>
+                    <div class="language-dropdown">
+                        <div class="language-option" data-lang="en">
+                            <img src="/assets/images/icons/en.png" alt="EN">
+                        </div>
+                        <div class="language-option" data-lang="ru">
+                            <img src="/assets/images/icons/ru.png" alt="RU">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/scripts/components/preloader.js"></script>
+    <script src="/scripts/main.js" type="module"></script>
+    <script type="module" src="/scripts/language.js"></script>
+    <script src="/scripts/components/footer.js"></script>
+    <script src="/scripts/components/intro.js"></script>
+    <script src="/scripts/components/notifications.js"></script>
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>
