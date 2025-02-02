@@ -9,6 +9,7 @@ class PageTransition {
 
     init() {
         window.addEventListener('load', () => {
+            this.pageTransition.classList.remove('active');
             setTimeout(() => {
                 this.hidePreloader();
             }, 500);
@@ -20,6 +21,11 @@ class PageTransition {
                 e.preventDefault();
                 this.navigateTo(link.href);
             }
+        });
+
+        window.addEventListener('popstate', (e) => {
+            e.preventDefault();
+            this.handleBackNavigation();
         });
     }
 
@@ -37,8 +43,43 @@ class PageTransition {
         this.pageTransition.classList.add('active');
 
         await new Promise(resolve => setTimeout(resolve, 500));
-
+        
         window.location.href = url;
+
+        window.addEventListener('pageshow', () => {
+            this.pageTransition.classList.remove('active');
+            this.isTransitioning = false;
+        }, { once: true });
+    }
+
+    async handleBackNavigation() {
+        if (this.isTransitioning) return;
+        this.isTransitioning = true;
+
+        this.pageTransition.classList.add('active');
+
+        try {
+            const previousUrl = document.referrer;
+            
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            if (previousUrl && previousUrl.startsWith(window.location.origin)) {
+                window.location.href = previousUrl;
+            } else {
+                window.location.href = '/';
+            }
+
+            window.addEventListener('pageshow', () => {
+                this.pageTransition.classList.remove('active');
+                this.isTransitioning = false;
+            }, { once: true });
+
+        } catch (error) {
+            console.error('Navigation error:', error);
+            this.pageTransition.classList.remove('active');
+            this.isTransitioning = false;
+            window.location.reload();
+        }
     }
 
     hidePreloader() {

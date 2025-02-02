@@ -5,8 +5,11 @@ class IntroScreen {
             return;
         }
 
+        const hasSeenIntro = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('seenIntro='));
         
-        if (document.cookie.includes('seenIntro=true')) {
+        if (hasSeenIntro) {
             const mainContent = document.querySelector('main');
             const footer = document.querySelector('.footer');
             
@@ -596,7 +599,7 @@ class IntroScreen {
 
         const expirationDate = new Date();
         expirationDate.setFullYear(expirationDate.getFullYear() + 1);
-        document.cookie = `seenIntro=true; expires=${expirationDate.toUTCString()}; path=/`;
+        document.cookie = `seenIntro=true; expires=${expirationDate.toUTCString()}; path=/; SameSite=Strict`;
 
         setTimeout(() => {
             document.body.classList.remove('intro-active');
@@ -630,4 +633,8 @@ class IntroScreen {
         return codes[Math.floor(Math.random() * codes.length)];
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    new IntroScreen();
+});
 

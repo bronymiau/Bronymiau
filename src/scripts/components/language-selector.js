@@ -48,15 +48,27 @@ class LanguageSelector {
     closeDropdown() {
         this.dropdown.classList.remove('active');
     }
-    changeLanguage(lang) {
+    async changeLanguage(lang) {
+        if (this.currentLang === lang) return;
+        
         this.currentLang = lang;
         localStorage.setItem('language', lang);
         this.updateButtonFlag(lang);
-        if (window.languageManager) {
-            window.languageManager.setLanguage(lang);
+        
+        const pageTransition = document.querySelector('.page-transition');
+        if (pageTransition) {
+            pageTransition.classList.add('active');
+            
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            const currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.set('t', Date.now());
+            window.location.replace(currentUrl.toString());
+        } else {
+            const currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.set('t', Date.now());
+            window.location.replace(currentUrl.toString());
         }
-        const event = new CustomEvent('languageChanged', { detail: { language: lang } });
-        document.dispatchEvent(event);
     }
 }
 document.addEventListener('DOMContentLoaded', () => {

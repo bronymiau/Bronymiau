@@ -41,13 +41,11 @@ app.use('/api/auth', require('./auth/discord'));
 app.use('/api', require('./routes/api'));
 
 app.post('/api/auth/logout', (req, res) => {
-    
     if (req.session) {
         req.session.destroy((err) => {
             if (err) {
                 return res.status(500).json({ error: 'Failed to logout' });
             }
-            
             res.clearCookie('connect.sid');
             res.json({ success: true });
         });
@@ -63,9 +61,9 @@ app.get('/', (req, res) => {
 app.get('/:page', (req, res, next) => {
     const pageName = req.params.page;
     const pagePath = path.join(__dirname, '../src/pages', `${pageName}.html`);
-    
+
     console.log(`Checking file: ${pagePath}`);
-    
+
     if (fs.existsSync(pagePath)) {
         console.log(`File found: ${pagePath}`);
         res.sendFile(pagePath);
@@ -78,9 +76,9 @@ app.get('/:page', (req, res, next) => {
 app.get('/:page.html', (req, res, next) => {
     const pageName = req.params.page;
     const pagePath = path.join(__dirname, '../src/pages', `${pageName}.html`);
-    
+
     console.log(`Checking file: ${pagePath}`);
-    
+
     if (fs.existsSync(pagePath)) {
         console.log(`File found: ${pagePath}`);
         res.sendFile(pagePath);
@@ -100,11 +98,12 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Internal Server Error' });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    
+const PORT = 10044;
+const HOST = '0.0.0.0';
+
+app.listen(PORT, HOST, () => {
     const pagesDir = path.join(__dirname, '../src/pages');
     fs.readdirSync(pagesDir)
         .filter(file => file.endsWith('.html'))
         .forEach(file => console.log(`- ${file}`));
-}); 
+});

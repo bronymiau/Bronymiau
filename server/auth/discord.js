@@ -5,7 +5,7 @@ const db = require('../database/db');
 
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
-const REDIRECT_URI = 'http://localhost:3000/api/auth/discord/callback';
+const REDIRECT_URI = 'https://bronymiau.com/api/auth/discord/callback';
 
 async function getDiscordToken(code) {
     const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
