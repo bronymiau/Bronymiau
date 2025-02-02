@@ -2,6 +2,7 @@ class IntroScreen {
     constructor() {
         if (this.isMobileDevice()) {
             this.showMobileWarning();
+            this.blockMobileInteraction();
             return;
         }
 
@@ -66,10 +67,50 @@ class IntroScreen {
     }
 
     isMobileDevice() {
-        return (window.innerWidth <= 768) || 
+        return (window.innerWidth <= 1024) || 
                ('ontouchstart' in window) ||
                (navigator.maxTouchPoints > 0) ||
-               (navigator.msMaxTouchPoints > 0);
+               (navigator.msMaxTouchPoints > 0) ||
+               /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    blockMobileInteraction() {
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+        document.body.style.height = '100%';
+        
+        const viewport = document.querySelector('meta[name="viewport"]');
+        viewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0';
+
+        const interactiveElements = document.querySelectorAll('a, button, input, select, textarea');
+        interactiveElements.forEach(element => {
+            element.style.pointerEvents = 'none';
+            element.style.userSelect = 'none';
+            element.setAttribute('tabindex', '-1');
+            if (element.tagName === 'A') {
+                element.href = 'javascript:void(0)';
+            }
+        });
+
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.style.pointerEvents = 'none';
+            img.style.userSelect = 'none';
+            img.draggable = false;
+        });
+
+        // Добавляем перехват событий touch
+        document.addEventListener('touchmove', this.preventTouch, { passive: false });
+        document.addEventListener('touchstart', this.preventTouch, { passive: false });
+        document.addEventListener('touchend', this.preventTouch, { passive: false });
+        document.addEventListener('touchcancel', this.preventTouch, { passive: false });
+    }
+
+    preventTouch(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
     }
 
     showMobileWarning() {
@@ -85,8 +126,13 @@ class IntroScreen {
             justify-content: flex-start;
             align-items: center;
             padding: 10px;
-            z-index: 99999;
+            z-index: 999999;
             font-family: 'Consolas', monospace;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            touch-action: none;
         `;
 
         warningScreen.innerHTML = `
@@ -98,34 +144,16 @@ class IntroScreen {
                 width: 90%;
                 max-width: 280px;
                 margin-left: 15px;
+                pointer-events: none;
             ">
-                <div style="
-                    text-align: center;
-                    margin-bottom: 10px;
-                    font-size: 20px;
-                ">⚠️</div>
-                
-                <div style="
-                    color: rgba(139, 92, 246, 0.9);
-                    font-size: 10px;
-                ">[SYSTEM_ERROR_DETECTED]</div>
-                
-                <h2 style="
-                    color: #8b5cf6;
-                    font-size: 14px;
-                    margin: 8px 0;
-                ">MOBILE VERSION UNAVAILABLE</h2>
-                
-                <div style="
-                    color: rgba(255, 255, 255, 0.7);
-                    font-size: 10px;
-                    line-height: 1.3;
-                ">
-                    ERROR_CODE: MOBILE_DEVICE_DETECTED
-                    STATUS: DEVELOPMENT_IN_PROGRESS
+                <div style="text-align: center; margin-bottom: 10px; font-size: 20px;">⚠️</div>
+                <div style="color: rgba(139, 92, 246, 0.9); font-size: 10px;">[ACCESS_DENIED]</div>
+                <h2 style="color: #8b5cf6; font-size: 14px; margin: 8px 0;">MOBILE ACCESS RESTRICTED</h2>
+                <div style="color: rgba(255, 255, 255, 0.7); font-size: 10px; line-height: 1.3;">
+                    ERROR: MOBILE_DEVICE_DETECTED
+                    STATUS: ACCESS_BLOCKED
                     SOLUTION: USE_DESKTOP_DEVICE
                 </div>
-                
                 <div style="
                     padding: 8px;
                     background: rgba(139, 92, 246, 0.1);
@@ -134,15 +162,14 @@ class IntroScreen {
                     font-size: 9px;
                     color: rgba(255, 255, 255, 0.5);
                 ">
-                    MIN_RESOLUTION: 1024px
-                    CURRENT_STATUS: BLOCKED
-                    RECOMMENDATION: DESKTOP_ONLY
+                    REQUIRED: DESKTOP_DEVICE
+                    MIN_WIDTH: 1024px
+                    TOUCH_SCREEN: NOT_ALLOWED
                 </div>
             </div>
         `;
 
         document.body.appendChild(warningScreen);
-        document.body.style.overflow = 'hidden';
     }
 
     createIntroScreen() {

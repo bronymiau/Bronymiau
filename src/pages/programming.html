@@ -28,6 +28,15 @@
     <meta name="twitter:description" content="Kinda a really cool person who succeeds in everything, even in your house">
     <meta name="twitter:image" content="https://bronymiau.com/assets/images/general/preview.png">
     <meta name="theme-color" content="#8b5cf6">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YH5QN1F15S"></script>
+    <script type="module">
+        import { config } from '/scripts/config.js';
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', config.googleAnalyticsId);
+    </script>
 </head>
 <body>
     <div class="preloader">

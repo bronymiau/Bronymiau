@@ -290,12 +290,12 @@ const translations = {
             response: "Response time is usually within 24 hours."
         },
         socials: {
-            title: "Social Networks",
+            title: "Социальные сети",
             tabs: {
-                main: "Main",
-                art: "Art",
-                gaming: "Gaming",
-                other: "Other"
+                main: "Основные",
+                art: "Арт",
+                gaming: "Игры",
+                other: "Другое"
             },
             platforms: {
                 discord: "Discord",
