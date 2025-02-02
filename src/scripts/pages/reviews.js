@@ -115,11 +115,9 @@ function sanitizeText(text) {
     return text
         .replace(/[<>]/g, '') 
         .replace(/[&]/g, '&amp;') 
-        .replace(/["']/g, '') 
-        .replace(/[`]/g, '') 
+        .replace(/["'`]/g, '') 
         .replace(/javascript:/gi, '') 
         .replace(/on\w+=/gi, '') 
-        .replace(/[^\w\s.,!?()-]/g, '') 
         .trim();
 }
 async function saveEdit(reviewId) {
@@ -128,17 +126,17 @@ async function saveEdit(reviewId) {
     const sanitizedContent = sanitizeText(content);
     
     if (!currentRating) {
-        Notifications.show('notifications.review.selectRating', 'warning', 'ru');
+        Notifications.show('Please select a rating', 'warning');
         return;
     }
 
     if (sanitizedContent.length < 10) {
-        Notifications.show('notifications.review.minLength', 'warning', 'ru');
+        Notifications.show('Review must be at least 10 characters long', 'warning');
         return;
     }
 
     if (sanitizedContent.length > 500) {
-        Notifications.show('notifications.review.maxLength', 'warning', 'ru');
+        Notifications.show('Review cannot be longer than 500 characters', 'warning');
         return;
     }
 
@@ -154,12 +152,12 @@ async function saveEdit(reviewId) {
             })
         });
         if (!response.ok) throw new Error('Failed to update review');
-        Notifications.show('notifications.review.updateSuccess', 'success', 'ru');
+        Notifications.show('Review updated successfully', 'success');
         await loadReviews();
         editReviewId = null;
     } catch (error) {
         console.error('Update review error:', error);
-        Notifications.show('notifications.review.updateError', 'error', 'ru');
+        Notifications.show('Error updating review', 'error');
     }
 }
 function cancelEdit() {
@@ -317,17 +315,19 @@ async function submitReview() {
     const sanitizedContent = sanitizeText(content);
     
     if (!currentRating) {
-        Notifications.show('notifications.review.selectRating', 'warning', 'ru');
+        Notifications.show('Please select a rating', 'warning');
         return;
     }
 
+    console.log('Content length:', sanitizedContent.length);
+    
     if (sanitizedContent.length < 10) {
-        Notifications.show('notifications.review.minLength', 'warning', 'ru');
+        Notifications.show('Review must be at least 10 characters long', 'warning');
         return;
     }
 
     if (sanitizedContent.length > 500) {
-        Notifications.show('notifications.review.maxLength', 'warning', 'ru');
+        Notifications.show('Review cannot be longer than 500 characters', 'warning');
         return;
     }
 
@@ -343,7 +343,7 @@ async function submitReview() {
             })
         });
         if (response.ok) {
-            Notifications.show('notifications.review.success', 'success', 'ru');
+            Notifications.show('Review submitted successfully', 'success');
             await loadReviews();
             await updateAuthUI();
             document.querySelector('.review-textarea').value = '';
@@ -354,6 +354,6 @@ async function submitReview() {
         }
     } catch (error) {
         console.error('Submit review error:', error);
-        Notifications.show('notifications.review.error', 'error', 'ru');
+        Notifications.show('Error submitting review', 'error');
     }
 } 

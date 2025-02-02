@@ -1,1 +1,91 @@
-<!DOCTYPE html><html lang="ru"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Try your luck with Cozy! - Bronymiau</title>    <link rel="stylesheet" href="/styles/variables.css">    <link rel="stylesheet" href="/styles/components/intro.css">    <link rel="stylesheet" href="/styles/components/preloader.css">    <link rel="stylesheet" href="/styles/main.css">    <link rel="stylesheet" href="/styles/pages/try-luck.css">    <link rel="stylesheet" href="/styles/components/notifications.css">    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">        <meta property="og:title" content="Don't click on me">        <meta property="og:description" content="Kinda a really cool person who succeeds in everything, even in your house">        <meta property="og:image" content="https://bronymiau.com/assets/images/general/preview.png">        <meta property="og:url" content="https://bronymiau.com">        <meta property="og:type" content="website">        <meta name="twitter:card" content="summary_large_image">        <meta name="twitter:site" content="@Bronymiau">        <meta name="twitter:title" content="Don't click on me">        <meta name="twitter:description" content="Kinda a really cool person who succeeds in everything, even in your house">        <meta name="twitter:image" content="https://bronymiau.com/assets/images/general/preview.png">        <meta name="theme-color" content="#8b5cf6"></head><body>    <div class="preloader">        <div class="loader"></div>    </div>    <div class="page-transition"></div>    <nav class="navbar">        <div class="nav-container">            <a href="/" class="nav-logo">                <img src="assets/images/icons/logo.png" alt="Bronymiau Logo">            </a>            <div class="nav-links">                <a href="/" class="nav-link" data-i18n="nav.main">Main</a>                <a href="/about" class="nav-link" data-i18n="nav.about">About me</a>                <a href="/art" class="nav-link" data-i18n="nav.artwork">Artwork</a>                <a href="/programming" class="nav-link" data-i18n="nav.coding">Coding</a>                <div class="ych-badge">                    <a href="/art" class="nav-link ych-link" data-i18n="nav.ych">                        YCH                        <span class="ych-price">30$</span>                        <div class="ych-preview">                            <img src="assets/images/general/ych2.png" alt="Current YCH" loading="lazy">                        </div>                    </a>                </div>            </div>        </div>    </nav>    <main class="main-content">        <section class="luck-section">            <div class="luck-container">                <div class="cozy-container">                    <img src="/assets/images/ponies/cozy.png" alt="Cozy Glow" class="cozy-image">                    <div class="magic-sparkles"></div>                </div>                <div class="luck-content">                    <h1 class="luck-title" data-i18n="luck.title">Try Your Luck!</h1>                    <p class="luck-description" data-i18n="luck.description">                        Let Cozy Glow predict your future! What kind of mischief awaits you today?                    </p>                    <div class="fortune-box">                        <p class="fortune-text" id="fortuneText" data-i18n="luck.defaultText">                            Нажми на кнопку ниже, чтобы узнать, что Cozy приготовила для тебя~                        </p>                    </div>                    <button class="fortune-button" id="fortuneButton">                        <span data-i18n="luck.button">Получить предсказание!</span>                        <i class="fas fa-magic"></i>                    </button>                </div>            </div>        </section>    </main>    <button class="scroll-to-top" aria-label="Scroll to top">        <i class="fas fa-arrow-up"></i>    </button>    <script src="/scripts/components/preloader.js"></script>    <script src="/scripts/main.js"></script>    <script type="module" src="/locales/translations.js"></script>    <script src="/scripts/components/intro.js"></script>    <script type="module" src="/scripts/fortune.js"></script>    <script type="module" src="/scripts/language.js"></script>    <script src="/scripts/components/notifications.js"></script></body></html> 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try your luck with Cozy! - Bronymiau</title>
+    <link rel="stylesheet" href="/styles/variables.css">
+    <link rel="stylesheet" href="/styles/components/intro.css">
+    <link rel="stylesheet" href="/styles/components/preloader.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/pages/try-luck.css">
+    <link rel="stylesheet" href="/styles/components/notifications.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta property="og:title" content="Don't click on me">
+    <meta property="og:description" content="Kinda a really cool person who succeeds in everything, even in your house">
+    <meta property="og:image" content="https://bronymiau.com/assets/images/general/preview.png">
+    <meta property="og:url" content="https://bronymiau.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Bronymiau">
+    <meta name="twitter:title" content="Don't click on me">
+    <meta name="twitter:description" content="Kinda a really cool person who succeeds in everything, even in your house">
+    <meta name="twitter:image" content="https://bronymiau.com/assets/images/general/preview.png">
+    <meta name="theme-color" content="#8b5cf6">
+</head>
+<body>
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    <div class="page-transition"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="assets/images/icons/logo.png" alt="Bronymiau Logo">
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link" data-i18n="nav.main">Main</a>
+                <a href="/about" class="nav-link" data-i18n="nav.about">About me</a>
+                <a href="/art" class="nav-link" data-i18n="nav.artwork">Artwork</a>
+                <a href="/programming" class="nav-link" data-i18n="nav.coding">Coding</a>
+                <div class="ych-badge">
+                    <a href="/art" class="nav-link ych-link" data-i18n="nav.ych">
+                        YCH
+                        <span class="ych-price">30$</span>
+                        <div class="ych-preview">
+                            <img src="assets/images/general/ych2.png" alt="Current YCH" loading="lazy">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <section class="luck-section">
+            <div class="luck-container">
+                <div class="cozy-container">
+                    <img src="/assets/images/ponies/cozy.png" alt="Cozy Glow" class="cozy-image">
+                    <div class="magic-sparkles"></div>
+                </div>
+                <div class="luck-content">
+                    <h1 class="luck-title" data-i18n="luck.title">Try Your Luck!</h1>
+                    <p class="luck-description" data-i18n="luck.description">
+                        Let Cozy Glow predict your future! What kind of mischief awaits you today?
+                    </p>
+                    <div class="fortune-box">
+                        <p class="fortune-text" id="fortuneText" data-i18n="luck.defaultText">
+                            Нажми на кнопку ниже, чтобы узнать, что Cozy приготовила для тебя~
+                        </p>
+                    </div>
+                    <button class="fortune-button" id="fortuneButton">
+                        <span data-i18n="luck.button">Получить предсказание!</span>
+                        <i class="fas fa-magic"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script src="/scripts/components/preloader.js"></script>
+    <script src="/scripts/main.js"></script>
+    <script type="module" src="/locales/translations.js"></script>
+    <script src="/scripts/components/intro.js"></script>
+    <script type="module" src="/scripts/fortune.js"></script>
+    <script type="module" src="/scripts/language.js"></script>
+    <script src="/scripts/components/notifications.js"></script>
+</body>
+</html> 

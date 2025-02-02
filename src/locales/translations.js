@@ -359,17 +359,6 @@ const translations = {
                     description: "Always ready to help with any questions"
                 }
             }
-        },
-        notifications: {
-            review: {
-                selectRating: "Please select a rating",
-                minLength: "Review must be at least 10 characters long",
-                maxLength: "Review cannot be longer than 500 characters",
-                success: "Review submitted successfully",
-                error: "Error submitting review",
-                updateSuccess: "Review updated successfully",
-                updateError: "Error updating review"
-            }
         }
     },
     ru: {
@@ -731,17 +720,6 @@ const translations = {
                     title: "Техподдержка 24/7",
                     description: "Всегда готовы помочь с любыми вопросами"
                 }
-            }
-        },
-        notifications: {
-            review: {
-                selectRating: "Пожалуйста, выберите рейтинг",
-                minLength: "Отзыв должен содержать минимум 10 символов",
-                maxLength: "Отзыв не может быть длиннее 500 символов",
-                success: "Отзыв успешно отправлен",
-                error: "Ошибка при отправке отзыва",
-                updateSuccess: "Отзыв успешно обновлен",
-                updateError: "Ошибка при обновлении отзыва"
             }
         }
     }

@@ -1,1 +1,226 @@
-.veroid-hero {    min-height: 50vh;    padding: 3rem 2rem 2rem;    position: relative;    overflow: visible;}.hero-content {    max-width: 1200px;    margin: 0.5rem auto 0;    display: grid;    grid-template-columns: 1fr 1fr;    gap: 4rem;    align-items: center;}.hero-title {    font-size: 3.5rem;    margin-bottom: 1rem;    font-weight: 700;}.accent {    background: linear-gradient(45deg, #8b5cf6, #a78bfa);    -webkit-background-clip: text;    background-clip: text;    color: transparent;}.hero-description {    font-size: 1.1rem;    color: rgba(255, 255, 255, 0.8);    margin-bottom: 1.5rem;}.hero-features {    display: flex;    gap: 1.5rem;    margin-bottom: 2rem;}.feature {    display: flex;    align-items: center;    gap: 0.5rem;    color: rgba(255, 255, 255, 0.9);}.feature i {    color: #8b5cf6;    font-size: 1.2rem;}.hero-image {    position: relative;    display: flex;    justify-content: center;    align-items: center;    overflow: visible;}.hero-image .floating-logo {    width: 340px !important;    height: auto !important;    filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.3));    animation: floatAndGlow 6s ease-in-out infinite;    position: relative;    z-index: 1;}@keyframes floatAndGlow {    0% {        transform: translateY(0px) rotate(0deg);        filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.2));    }    25% {        filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.4));    }    50% {        transform: translateY(-20px) rotate(5deg);        filter: drop-shadow(0 0 60px rgba(139, 92, 246, 0.6));    }    75% {        filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.4));    }    100% {        transform: translateY(0px) rotate(0deg);        filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.2));    }}.cta-button {    display: inline-flex;    align-items: center;    gap: 1rem;    background: #8b5cf6;    color: white;    padding: 1rem 2rem;    border-radius: 8px;    text-decoration: none;    font-weight: 500;    transition: all 0.3s ease;}.cta-button:hover {    transform: translateY(-3px);    background: #7c3aed;}.partnership {    padding: 4rem 2rem;    background: rgba(23, 23, 33, 0.5);}.partnership-content {    max-width: 800px;    margin: 3rem auto 0;    text-align: center;}.partnership-badge {    display: inline-flex;    align-items: center;    gap: 0.5rem;    background: rgba(139, 92, 246, 0.1);    color: var(--primary-color);    padding: 0.5rem 1rem;    border-radius: 50px;    margin-bottom: 1rem;}.partnership-text {    color: rgba(255, 255, 255, 0.8);    font-size: 0.95rem;    line-height: 1.5;    max-width: 600px;    margin: 0 auto;}.benefits {    padding: 4rem 2rem;}.benefits-grid {    display: grid;    grid-template-columns: repeat(3, 1fr);    gap: 2rem;    max-width: 1200px;    margin: 2rem auto 2.5rem;    padding: 0 2rem;    margin-top: 2.5rem;    margin-bottom: 2.5rem;}.benefit-card {    background: rgba(23, 23, 33, 0.5);    border: 1px solid rgba(139, 92, 246, 0.1);    border-radius: 12px;    padding: 2rem;    text-align: center;    transition: all 0.3s ease;}.benefit-card:hover {    transform: translateY(-5px);    border-color: var(--primary-color);}.benefit-card i {    font-size: 2rem;    color: #8b5cf6;    margin-bottom: 1rem;}.benefit-card h3 {    font-size: 1.2rem;    margin-bottom: 0.5rem;    color: #fff;}.benefit-card p {    color: rgba(255, 255, 255, 0.7);    font-size: 0.9rem;    line-height: 1.5;}@media (max-width: 768px) {    .hero-content {        grid-template-columns: 1fr;        text-align: center;        gap: 3rem;    }    .hero-features {        justify-content: center;        flex-wrap: wrap;    }    .benefits-grid {        grid-template-columns: 1fr;        margin-bottom: 3rem;    }    .hero-image .floating-logo {        width: 180px !important;    }    .hero-title {        font-size: 3rem;    }    .veroid-hero {        padding: 2.5rem 2rem 2rem;    }}body {    margin: 0;    padding: 0;    overflow-x: hidden;}.hero-content > *:last-child {    margin-bottom: 0;}section {    border: none;    margin: 0;} 
+.veroid-hero {
+    min-height: 50vh;
+    padding: 3rem 2rem 2rem;
+    position: relative;
+    overflow: visible;
+}
+.hero-content {
+    max-width: 1200px;
+    margin: 0.5rem auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+.accent {
+    background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.hero-description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+}
+.hero-features {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+.feature i {
+    color: #8b5cf6;
+    font-size: 1.2rem;
+}
+.hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+.hero-image .floating-logo {
+    width: 340px !important;
+    height: auto !important;
+    filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.3));
+    animation: floatAndGlow 6s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+@keyframes floatAndGlow {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.2));
+    }
+    25% {
+        filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.4));
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+        filter: drop-shadow(0 0 60px rgba(139, 92, 246, 0.6));
+    }
+    75% {
+        filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.4));
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.2));
+    }
+}
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: #8b5cf6;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.cta-button:hover {
+    transform: translateY(-3px);
+    background: #7c3aed;
+}
+.partnership {
+    padding: 4rem 2rem;
+    background: rgba(23, 23, 33, 0.5);
+}
+.partnership-content {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    text-align: center;
+}
+.partnership-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+}
+.partnership-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.benefits {
+    padding: 4rem 2rem;
+}
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto 2.5rem;
+    padding: 0 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.benefit-card {
+    background: rgba(23, 23, 33, 0.5);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.benefit-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+.benefit-card i {
+    font-size: 2rem;
+    color: #8b5cf6;
+    margin-bottom: 1rem;
+}
+.benefit-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+.benefit-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+    .hero-features {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        margin-bottom: 3rem;
+    }
+    .hero-image .floating-logo {
+        width: 180px !important;
+    }
+    .hero-title {
+        font-size: 3rem;
+    }
+    .veroid-hero {
+        padding: 2.5rem 2rem 2rem;
+    }
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.hero-content > *:last-child {
+    margin-bottom: 0;
+}
+section {
+    border: none;
+    margin: 0;
+}
+
+.veroid-hero,
+.hero-content,
+.hero-title,
+.accent,
+.hero-description,
+.hero-features,
+.feature,
+.benefits,
+.benefits-grid,
+.benefit-card,
+.benefit-card i,
+.benefit-card h3,
+.benefit-card p {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.floating-logo,
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    pointer-events: none;
+} 
